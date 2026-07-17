@@ -10,8 +10,8 @@
 
 package org.glassfish.fighterfish.sample.embeddedgf.provisionerwebapp;
 
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;

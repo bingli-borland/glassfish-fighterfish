@@ -16,8 +16,8 @@
 
 package org.glassfish.osgijavaeebase;
 
-import org.glassfish.api.deployment.archive.Archive;
-import org.glassfish.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.api.deployment.archive.Archive;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
 import static org.glassfish.osgijavaeebase.Constants.FILE_PROTOCOL;
 import static org.glassfish.osgijavaeebase.Constants.REFERENCE_PROTOCOL;
 import org.osgi.framework.Bundle;

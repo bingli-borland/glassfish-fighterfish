@@ -16,13 +16,13 @@
 
 package org.glassfish.osgijavaeebase;
 
-import org.glassfish.api.ActionReport;
-import org.glassfish.api.admin.ServerEnvironment;
-import org.glassfish.api.deployment.OpsParams;
-import org.glassfish.api.deployment.archive.ArchiveHandler;
-import org.glassfish.api.deployment.archive.ReadableArchive;
-import org.glassfish.deployment.common.DeploymentContextImpl;
-import org.glassfish.internal.api.ClassLoaderHierarchy;
+import com.astra.enterprise.api.ActionReport;
+import com.astra.enterprise.api.admin.ServerEnvironment;
+import com.astra.enterprise.api.deployment.OpsParams;
+import com.astra.enterprise.api.deployment.archive.ArchiveHandler;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.deployment.common.DeploymentContextImpl;
+import com.astra.enterprise.internal.api.ClassLoaderHierarchy;
 import org.glassfish.osgijavaeebase.OSGiArchiveHandler;
 import org.osgi.framework.Bundle;
 

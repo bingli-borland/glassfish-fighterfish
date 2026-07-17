@@ -22,11 +22,11 @@
     <parent>
         <groupId>org.glassfish.fighterfish</groupId>
         <artifactId>module-parent-pom</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
         <relativePath>../parent-pom/pom.xml</relativePath>
     </parent>
     <artifactId>osgi-jpa-extension</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <packaging>hk2-jar</packaging> <!-- This must be a hk2-jar as it has @Startup service -->
     <name>Support for JPA in Java SE mode usage from OSGi Bundles</name>
 
@@ -45,9 +45,7 @@
                     <dependency>
                         <groupId>com.sun</groupId>
                         <artifactId>tools</artifactId>
-                        <version>${hk2.version}</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                        <version>1.7.0</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -79,7 +77,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.main.common</groupId>
+            <groupId>com.astra.enterprise.main.common</groupId>
             <artifactId>glassfish-api</artifactId>
             <scope>provided</scope>
         </dependency>

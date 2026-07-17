@@ -16,9 +16,9 @@
 
 package org.glassfish.fighterfish.test.it;
 
-import org.glassfish.embeddable.Deployer;
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.Deployer;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.glassfish.fighterfish.test.util.*;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -707,7 +707,7 @@ public class T2_Test extends AbstractTestObject {
             logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "httpService = {0}", new Object[]{httpService});
 
             String location = "mvn:org.apache.felix/org.apache.felix.webconsole/3.1.2/jar";
-            String location2 = "mvn:org.glassfish.main.osgi-platforms/felix-webconsole-extension/4.0.1-b02/jar";
+            String location2 = "mvn:com.astra.enterprise.main.osgi-platforms/felix-webconsole-extension/4.0.1-b02/jar";
             Bundle bundle = tc.installBundle(location);
             // See GlASSFISH-20646: We need to install web-console-extension with a location that has AllPermission.
             // Since TestContext does not expose such an API, we have to install it ourselves and remember to uninstall

@@ -18,8 +18,8 @@ package org.glassfish.osgi.ee.resources;
 
 import com.sun.enterprise.config.serverbeans.BindableResource;
 import com.sun.enterprise.config.serverbeans.ResourceRef;
-import org.glassfish.connectors.config.ConnectorConnectionPool;
-import org.glassfish.connectors.config.ConnectorResource;
+import com.astra.enterprise.connectors.config.ConnectorConnectionPool;
+import com.astra.enterprise.connectors.config.ConnectorResource;
 import org.osgi.framework.BundleContext;
 
 import javax.jms.ConnectionFactory;

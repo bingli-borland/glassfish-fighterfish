@@ -16,7 +16,7 @@
 
 package org.glassfish.osgiejb;
 
-import org.glassfish.api.deployment.archive.Archive;
+import com.astra.enterprise.api.deployment.archive.Archive;
 import org.glassfish.osgijavaeebase.OSGiBundleArchive;
 import org.glassfish.osgijavaeebase.OSGiJavaEEArchive;
 import org.glassfish.osgijavaeebase.URIable;

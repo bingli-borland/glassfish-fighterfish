@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>sample.uas.simplejaxrs</artifactId>
     <packaging>war</packaging>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <name>sample.uas.simplejaxrs Jersey Webapp</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/uas/simplejaxrs</connection>

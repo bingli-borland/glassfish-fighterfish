@@ -10,7 +10,7 @@
 
 package org.glassfish.fighterfish.sample.embeddedgfapi;
 
-import org.glassfish.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFish;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;

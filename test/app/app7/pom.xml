@@ -27,7 +27,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app7</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>war</packaging>
 
     <name>test.app7: Similar to test.app6, except that here entities and persistence.xml are all packaged in WEB-INF/classes</name>

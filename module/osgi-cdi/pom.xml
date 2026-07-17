@@ -22,11 +22,11 @@
     <parent>
         <groupId>org.glassfish.fighterfish</groupId>
         <artifactId>module-parent-pom</artifactId>
-        <version>1.0.7-SNAPSHOT</version>
+        <version>1.0.7</version>
         <relativePath>../parent-pom/pom.xml</relativePath>
     </parent>
     <artifactId>osgi-cdi</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.6</version>
     <!-- We don't use bundle packaging as that interfers with other custom packaging types because of a maven bug
      which is probably fixed in recent maven versions, but I have no time to test them. So, better be safe.-->
     <packaging>jar</packaging>

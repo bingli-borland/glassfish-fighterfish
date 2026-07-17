@@ -17,12 +17,12 @@
 package org.glassfish.osgijavaeebase;
 
 import com.sun.enterprise.deploy.shared.ArchiveFactory;
-import org.glassfish.api.ActionReport;
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
-import org.glassfish.internal.api.Globals;
-import org.glassfish.internal.deployment.Deployment;
-import org.glassfish.server.ServerEnvironmentImpl;
+import com.astra.enterprise.api.ActionReport;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.internal.api.Globals;
+import com.astra.enterprise.internal.deployment.Deployment;
+import com.astra.enterprise.server.ServerEnvironmentImpl;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;

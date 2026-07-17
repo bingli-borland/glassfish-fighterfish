@@ -26,7 +26,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app15</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>test.app15: JNDI Lookup of a DataSource from SCR Component</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/test/app/app15</connection>

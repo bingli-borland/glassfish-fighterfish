@@ -16,10 +16,10 @@
 
 package org.glassfish.fighterfish.test.gfpaxtc;
 
-import org.glassfish.embeddable.BootstrapProperties;
-import org.glassfish.embeddable.GlassFishException;
-import org.glassfish.embeddable.GlassFishProperties;
-import org.glassfish.embeddable.GlassFishRuntime;
+import com.astra.enterprise.embeddable.BootstrapProperties;
+import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFishProperties;
+import com.astra.enterprise.embeddable.GlassFishRuntime;
 import org.ops4j.pax.exam.ExamSystem;
 import org.ops4j.pax.exam.TestContainer;
 import org.ops4j.pax.exam.TestContainerException;

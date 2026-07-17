@@ -20,7 +20,7 @@ import com.sun.enterprise.web.WebModule;
 import org.apache.catalina.Container;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.NamespaceException;
-import org.glassfish.web.valve.GlassFishValve;
+import com.astra.enterprise.web.valve.GlassFishValve;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;

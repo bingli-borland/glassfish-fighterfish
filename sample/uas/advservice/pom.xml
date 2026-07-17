@@ -20,7 +20,7 @@
   </parent>
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.uas.advservice</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>Advanced (Persistence Awar, Transactional) OSGi Service for User Authentication Service</name>
   <description>${project.name}</description>
   <scm>

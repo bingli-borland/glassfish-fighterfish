@@ -21,7 +21,7 @@
 
 	<groupId>org.glassfish.fighterfish</groupId>
 	<artifactId>sample.uas.ejbservice2</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<packaging>ejb</packaging>
 
 	<name>An EJB based implementation of User Authentication Service - This does not embed JPA classes.</name>

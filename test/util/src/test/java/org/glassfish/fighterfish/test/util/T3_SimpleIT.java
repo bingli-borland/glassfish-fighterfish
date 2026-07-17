@@ -16,7 +16,7 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;

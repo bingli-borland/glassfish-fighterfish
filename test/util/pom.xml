@@ -30,7 +30,7 @@
     -->
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.util</artifactId>
-    <version>1.1.8-SNAPSHOT</version>
+    <version>1.1.8</version>
     <name>A junit extension which helps writing test cases involving GlassFish/Maven/JUnit/PAX-EXAM easier</name>
     <description>
         This is a small junit extension developed in FighterFish project to make the task of writing
@@ -294,9 +294,7 @@
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
-                    <version>${java.version}</version>
-                    <scope>system</scope>
-                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                    <version>1.7.0</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -438,7 +436,7 @@
                                 <configuration>
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>org.glassfish.main.distributions</groupId>
+                                            <groupId>com.astra.enterprise.main.distributions</groupId>
                                             <artifactId>glassfish</artifactId>
                                             <version>3.1.2.2</version>
                                             <type>zip</type>
@@ -491,7 +489,7 @@
         <!-- The version of pax-exam being used. I have tested test.util bundle
               with 2.3.0 only, so, let's stick to this version for now. -->
         <pax-exam.version>2.3.0</pax-exam.version>
-        <fighterfish.provisioner.url>mvn:org.glassfish.main.distributions/glassfish/3.1.2.2/zip</fighterfish.provisioner.url>
+        <fighterfish.provisioner.url>mvn:com.astra.enterprise.main.distributions/glassfish/3.1.2.2/zip</fighterfish.provisioner.url>
         <felix.version>4.2.1</felix.version>
         <equinox.version>3.6.2.R36x_v20110210</equinox.version>
     </properties>

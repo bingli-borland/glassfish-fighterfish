@@ -27,7 +27,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app20</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>war</packaging>
 
     <name>test.app20 Web App: A  simple CDI based WAB. Contains a Servlet using a OSGi/CDI used for testing GLASSFISH-18370.</name>

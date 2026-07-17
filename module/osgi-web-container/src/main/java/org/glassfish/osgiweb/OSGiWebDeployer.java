@@ -17,10 +17,10 @@
 package org.glassfish.osgiweb;
 
 import com.sun.enterprise.deploy.shared.ArchiveFactory;
-import org.glassfish.api.ActionReport;
-import org.glassfish.internal.deployment.Deployment;
+import com.astra.enterprise.api.ActionReport;
+import com.astra.enterprise.internal.deployment.Deployment;
 import org.glassfish.osgijavaeebase.*;
-import org.glassfish.server.ServerEnvironmentImpl;
+import com.astra.enterprise.server.ServerEnvironmentImpl;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 

@@ -16,7 +16,7 @@
 
 package org.glassfish.osgijavaeebase;
 
-import org.glassfish.internal.api.DelegatingClassLoader;
+import com.astra.enterprise.internal.api.DelegatingClassLoader;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;

@@ -20,7 +20,7 @@ import org.apache.catalina.HttpRequest;
 import org.apache.catalina.Request;
 import org.apache.catalina.Response;
 import org.apache.catalina.valves.ValveBase;
-import org.glassfish.security.common.PrincipalImpl;
+import com.astra.enterprise.security.common.PrincipalImpl;
 import org.osgi.service.http.HttpContext;
 
 import javax.servlet.ServletException;

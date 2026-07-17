@@ -17,7 +17,7 @@
 
 package org.glassfish.fighterfish.sample.testing.failsafe;
 
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.glassfish.fighterfish.test.util.StringPatternMatcher;
 import org.glassfish.fighterfish.test.util.TestContext;
 import org.glassfish.fighterfish.test.util.TestsConfiguration;

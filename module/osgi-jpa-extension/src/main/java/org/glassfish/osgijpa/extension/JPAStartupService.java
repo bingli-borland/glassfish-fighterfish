@@ -16,7 +16,7 @@
 
 package org.glassfish.osgijpa.extension;
 
-import org.glassfish.api.Startup;
+import com.astra.enterprise.api.Startup;
 import org.jvnet.hk2.annotations.Service;
 
 /**

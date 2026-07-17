@@ -20,7 +20,7 @@
   </parent>
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.uas.simpleservice</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>Simple OSGi Service implementation of User Authentication Service API</name>
   <scm>
     <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/uas/simpleservice</connection>

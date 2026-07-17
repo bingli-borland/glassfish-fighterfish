@@ -30,7 +30,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>module-parent-pom</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
     <name>Parent POM for all FighterFish Modules</name>
 
@@ -135,27 +135,27 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>org.glassfish.main.common</groupId>
+                <groupId>com.astra.enterprise.main.common</groupId>
                 <artifactId>glassfish-api</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.glassfish.main.common</groupId>
+                <groupId>com.astra.enterprise.main.common</groupId>
                 <artifactId>internal-api</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.glassfish.main.deployment</groupId>
+                <groupId>com.astra.enterprise.main.deployment</groupId>
                 <artifactId>deployment-common</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.glassfish.main.web</groupId>
+                <groupId>com.astra.enterprise.main.web</groupId>
                 <artifactId>web-glue</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.glassfish.main.deployment</groupId>
+                <groupId>com.astra.enterprise.main.deployment</groupId>
                 <artifactId>dol</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
@@ -315,8 +315,6 @@
                                     <groupId>com.sun</groupId>
                                     <artifactId>tools</artifactId>
                                     <version>1.7.0</version>
-                                    <scope>system</scope>
-                                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
                                 </dependency>
                             </dependencies>
                         </plugin>
@@ -342,9 +340,7 @@
                                 <dependency>
                                     <groupId>com.sun</groupId>
                                     <artifactId>tools</artifactId>
-                                    <version>${hk2.version}</version>
-                                    <scope>system</scope>
-                                    <systemPath>${java.home}/lib/tools.jar</systemPath>
+                                    <version>1.7.0</version>
                                 </dependency>
                             </dependencies>
                         </plugin>
@@ -355,7 +351,7 @@
     </profiles>
 
     <properties>
-        <glassfish.version>4.1.2</glassfish.version>
+        <glassfish.version>5.1.0</glassfish.version>
         <hk2.version>1.6.9</hk2.version>
         <eclipselink.version>2.7.0</eclipselink.version>
         <mojarra.version>2.1.0-b11</mojarra.version>
@@ -405,7 +401,7 @@
                 <enabled>false</enabled>
                 <updatePolicy>never</updatePolicy>
             </snapshots>
-            <url>https://maven.java.net/content/groups/promoted/</url>
+            <url>https://nexus.payara.fish/service/rest/repository/browse/payara-artifacts/</url>
             <layout>default</layout>
         </repository>
 

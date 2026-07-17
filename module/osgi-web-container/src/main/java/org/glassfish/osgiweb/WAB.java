@@ -16,8 +16,8 @@
 
 package org.glassfish.osgiweb;
 
-import org.glassfish.api.deployment.archive.Archive;
-import org.glassfish.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.api.deployment.archive.Archive;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
 import org.glassfish.osgijavaeebase.OSGiBundleArchive;
 import org.glassfish.osgijavaeebase.OSGiJavaEEArchive;
 import org.osgi.framework.Bundle;

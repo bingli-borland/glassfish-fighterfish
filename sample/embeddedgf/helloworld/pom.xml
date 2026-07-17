@@ -20,7 +20,7 @@
   </parent>
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.embeddedgf.helloworld</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Using Embedded GlassFish API in an OSGi environment</name>
   <dependencies>
   <dependency>

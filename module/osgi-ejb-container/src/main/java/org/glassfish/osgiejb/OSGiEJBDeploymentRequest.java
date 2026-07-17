@@ -18,11 +18,11 @@ package org.glassfish.osgiejb;
 
 import org.glassfish.osgijavaeebase.OSGiDeploymentRequest;
 import org.glassfish.osgijavaeebase.OSGiDeploymentContext;
-import org.glassfish.api.ActionReport;
-import org.glassfish.api.deployment.archive.ReadableArchive;
-import org.glassfish.api.deployment.OpsParams;
-import org.glassfish.server.ServerEnvironmentImpl;
-import org.glassfish.internal.deployment.Deployment;
+import com.astra.enterprise.api.ActionReport;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.api.deployment.OpsParams;
+import com.astra.enterprise.server.ServerEnvironmentImpl;
+import com.astra.enterprise.internal.deployment.Deployment;
 import org.osgi.framework.Bundle;
 
 import java.util.logging.Logger;

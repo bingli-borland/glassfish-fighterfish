@@ -25,11 +25,11 @@
     <!--<parent>-->
         <!--<groupId>org.glassfish.fighterfish</groupId>-->
         <!--<artifactId>test.parent-pom</artifactId>-->
-        <!--<version>1.0.0-SNAPSHOT</version>-->
+        <!--<version>1.0.0</version>-->
     <!--</parent>-->
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.gfpaxtc</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>A in-process test container implementation for GlassFish</name>
 

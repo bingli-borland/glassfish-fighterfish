@@ -23,7 +23,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.embeddedgf.provisionerwebapp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>FighterFish Embedded GlassFish Sample - Web/GlassFish Bootstrapper</name>
     <description>A web application that embeds GlassFish inside an existing OSGi runtime</description>
     <packaging>war</packaging>

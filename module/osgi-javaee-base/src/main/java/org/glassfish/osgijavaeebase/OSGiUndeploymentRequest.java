@@ -17,13 +17,13 @@
 package org.glassfish.osgijavaeebase;
 
 import com.sun.enterprise.util.io.FileUtils;
-import org.glassfish.api.ActionReport;
-import org.glassfish.api.deployment.DeployCommandParameters;
-import org.glassfish.api.deployment.UndeployCommandParameters;
-import org.glassfish.api.deployment.archive.ReadableArchive;
-import org.glassfish.internal.data.ApplicationInfo;
-import org.glassfish.internal.deployment.Deployment;
-import org.glassfish.server.ServerEnvironmentImpl;
+import com.astra.enterprise.api.ActionReport;
+import com.astra.enterprise.api.deployment.DeployCommandParameters;
+import com.astra.enterprise.api.deployment.UndeployCommandParameters;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.internal.data.ApplicationInfo;
+import com.astra.enterprise.internal.deployment.Deployment;
+import com.astra.enterprise.server.ServerEnvironmentImpl;
 import org.osgi.framework.Bundle;
 
 import java.io.File;

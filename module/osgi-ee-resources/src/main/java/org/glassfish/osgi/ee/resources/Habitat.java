@@ -16,8 +16,8 @@
 
 package org.glassfish.osgi.ee.resources;
 
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 
 /**
  * Adapter for old Habitat's getComponent method

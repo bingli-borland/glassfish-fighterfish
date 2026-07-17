@@ -16,7 +16,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.testing.failsafe</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Sample to show use of PAX-EXAM/Maven failsafe plugin/JUnit in GlassFish to test enterprise Java applications</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/testing/failsafe</connection>
@@ -68,9 +68,7 @@
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
-                    <version>${java.version}</version>
-                    <scope>system</scope>
-                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                    <version>1.7.0</version>
                 </dependency>
             </dependencies>
         </profile>

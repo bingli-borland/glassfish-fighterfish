@@ -18,9 +18,9 @@ package org.glassfish.osgi.ee.resources;
 
 import com.sun.appserv.connectors.internal.api.ConnectorsUtil;
 import com.sun.enterprise.config.serverbeans.*;
-import org.glassfish.connectors.config.ConnectorConnectionPool;
-import org.glassfish.internal.api.ServerContext;
-import org.glassfish.jdbc.config.JdbcConnectionPool;
+import com.astra.enterprise.connectors.config.ConnectorConnectionPool;
+import com.astra.enterprise.internal.api.ServerContext;
+import com.astra.enterprise.jdbc.config.JdbcConnectionPool;
 import org.jvnet.hk2.config.*;
 import org.osgi.framework.BundleContext;
 

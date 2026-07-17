@@ -18,9 +18,9 @@ package org.glassfish.osgiweb;
 
 import com.sun.enterprise.web.*;
 import com.sun.faces.spi.ConfigurationResourceProvider;
-import org.glassfish.api.deployment.DeploymentContext;
+import com.astra.enterprise.api.deployment.DeploymentContext;
 import org.glassfish.hk2.classmodel.reflect.Types;
-import org.glassfish.web.loader.WebappClassLoader;
+import com.astra.enterprise.web.loader.WebappClassLoader;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Bundle;
 import org.glassfish.osgijavaeebase.OSGiBundleArchive;

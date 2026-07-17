@@ -26,7 +26,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.ct.misc.bundle.delay</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>A bundle that introduces a configurable delay in the system</name>
     <description>${project.name}</description>
     <scm>

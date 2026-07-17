@@ -16,7 +16,7 @@
 
 package org.glassfish.osgijavaeebase;
 
-import org.glassfish.internal.data.ApplicationInfo;
+import com.astra.enterprise.internal.data.ApplicationInfo;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 

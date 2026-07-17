@@ -23,8 +23,8 @@ import org.glassfish.osgijavaeebase.OSGiBundleArchive;
 import org.glassfish.osgijavaeebase.BundleClassLoader;
 import org.glassfish.osgijavaeebase.JarHelper;
 import org.glassfish.osgijavaeebase.OSGiArchiveHandler;
-import org.glassfish.api.deployment.archive.WritableArchive;
-import org.glassfish.internal.api.Globals;
+import com.astra.enterprise.api.deployment.archive.WritableArchive;
+import com.astra.enterprise.internal.api.Globals;
 import org.glassfish.osgijpa.dd.Persistence;
 
 import java.util.jar.JarFile;

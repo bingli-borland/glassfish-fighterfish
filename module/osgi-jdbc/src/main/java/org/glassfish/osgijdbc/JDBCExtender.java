@@ -16,9 +16,9 @@
 
 package org.glassfish.osgijdbc;
 
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
-import org.glassfish.internal.api.ClassLoaderHierarchy;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.internal.api.ClassLoaderHierarchy;
 import org.glassfish.osgijavaeebase.Extender;
 import org.osgi.framework.*;
 import org.osgi.service.jdbc.DataSourceFactory;

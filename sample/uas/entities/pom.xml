@@ -21,7 +21,7 @@
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.uas.entities</artifactId>
   <name>JPA entities for User Authentication Service</name>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <scm>
     <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/uas/entities</connection>
     <developerConnection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/uas/entities

@@ -20,7 +20,7 @@ import com.sun.enterprise.config.serverbeans.BindableResource;
 import com.sun.enterprise.config.serverbeans.Domain;
 import com.sun.enterprise.config.serverbeans.ResourceRef;
 import com.sun.enterprise.config.serverbeans.Resources;
-import org.glassfish.connectors.config.AdminObjectResource;
+import com.astra.enterprise.connectors.config.AdminObjectResource;
 import org.osgi.framework.BundleContext;
 
 import javax.jms.Queue;

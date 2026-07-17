@@ -29,7 +29,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>test.it</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>FighterFish integration test suite</name>
     <dependencies>
         <dependency>
@@ -325,7 +325,7 @@
         </dependency>       
         -->        
         <dependency>
-            <groupId>org.glassfish.main.osgi-platforms</groupId>
+            <groupId>com.astra.enterprise.main.osgi-platforms</groupId>
             <artifactId>felix-webconsole-extension</artifactId>
             <version>4.0.1-b02</version>
             <scope>test</scope>
@@ -336,7 +336,7 @@
                     <artifactId>org.apache.felix.webconsole</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>org.glassfish.main.security</groupId>
+                    <groupId>com.astra.enterprise.main.security</groupId>
                     <artifactId>security-services</artifactId>
                 </exclusion>
             </exclusions>
@@ -433,7 +433,7 @@
                         <classpathDependencyExcludes>javax:javaee-api</classpathDependencyExcludes>
                         <!-- We don't need any of these in classpath. These dependencies are only present
                              so that maven can ensure they are resolved before tests use them. -->
-                        <classpathDependencyExcludes>org.glassfish.main.osgi-platforms:felix-webconsole-extension</classpathDependencyExcludes>
+                        <classpathDependencyExcludes>com.astra.enterprise.main.osgi-platforms:felix-webconsole-extension</classpathDependencyExcludes>
                         <classpathDependencyExcludes>org.glassfish.fighterfish:test.app*</classpathDependencyExcludes>
                         <classpathDependencyExcludes>org.glassfish.fighterfish:sample.*</classpathDependencyExcludes>
                     </classpathDependencyExcludes>
@@ -454,9 +454,7 @@
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
-                    <version>1.6.0</version>
-                    <scope>system</scope>
-                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                    <version>1.7.0</version>
                 </dependency>
             </dependencies>
         </profile>

@@ -27,7 +27,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app6</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <!--  We use bundle packaging as we are embedding libraries. -->
     <packaging>bundle</packaging>
 

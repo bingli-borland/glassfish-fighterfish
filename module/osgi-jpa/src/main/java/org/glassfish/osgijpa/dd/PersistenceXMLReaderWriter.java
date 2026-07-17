@@ -16,8 +16,8 @@
 
 package org.glassfish.osgijpa.dd;
 
-import org.glassfish.internal.api.Globals;
-import org.glassfish.internal.api.ClassLoaderHierarchy;
+import com.astra.enterprise.internal.api.Globals;
+import com.astra.enterprise.internal.api.ClassLoaderHierarchy;
 
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.JAXBContext;

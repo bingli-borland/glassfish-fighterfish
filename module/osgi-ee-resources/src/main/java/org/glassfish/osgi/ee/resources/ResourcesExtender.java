@@ -16,7 +16,7 @@
 
 package org.glassfish.osgi.ee.resources;
 
-import org.glassfish.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFish;
 import org.glassfish.osgijavaeebase.Extender;
 import org.osgi.framework.*;
 

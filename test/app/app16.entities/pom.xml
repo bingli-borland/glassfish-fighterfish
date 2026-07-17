@@ -26,7 +26,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app16.entities</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>test.app16.entities: JPA entities for test.app16</name>
     <scm>
         <connection>scm:svn:https://github.com/eclipse-ee4j/glassfish-fighterfish/test/app/app16.entities</connection>

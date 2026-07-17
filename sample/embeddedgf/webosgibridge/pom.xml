@@ -23,7 +23,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.embeddedgf.webosgibridge</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>FighterFish Embedded GlassFish Sample - Web/OSGi Bridge</name>
     <description>A web application that embeds an OSGi runtime</description>
     <packaging>war</packaging>
@@ -141,9 +141,9 @@
         <!--
         This is a framework extension bundle that we install to make embeddable api available to everyone else.
         <dependency>
-            <groupId>org.glassfish.main</groupId>
+            <groupId>com.astra.enterprise.main</groupId>
             <artifactId>simple-glassfish-api</artifactId>
-            <version>4.0-SNAPSHOT</version>
+            <version>4.0</version>
             <scope>provided</scope>
         </dependency>
         -->

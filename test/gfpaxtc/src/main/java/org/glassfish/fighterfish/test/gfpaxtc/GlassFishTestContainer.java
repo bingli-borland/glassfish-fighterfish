@@ -16,7 +16,7 @@
 
 package org.glassfish.fighterfish.test.gfpaxtc;
 
-import org.glassfish.embeddable.*;
+import com.astra.enterprise.embeddable.*;
 import org.ops4j.pax.exam.*;
 import org.ops4j.pax.exam.TimeoutException;
 import org.ops4j.pax.exam.options.FrameworkStartLevelOption;

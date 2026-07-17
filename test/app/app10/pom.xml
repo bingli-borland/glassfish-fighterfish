@@ -27,7 +27,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app10</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>bundle</packaging>
 
     <name>test.app10: JSF WAB - contains JSF annotated beans - regression test case for 11636</name>

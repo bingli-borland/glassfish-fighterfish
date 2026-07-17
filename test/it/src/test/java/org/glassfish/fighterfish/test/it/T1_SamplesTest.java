@@ -16,7 +16,7 @@
 
 package org.glassfish.fighterfish.test.it;
 
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.glassfish.fighterfish.test.util.*;
 import org.junit.Assert;
 import org.junit.Test;

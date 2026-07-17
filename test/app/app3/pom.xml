@@ -27,7 +27,7 @@
 
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app3</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>war</packaging>
 
     <name>test.app3 Web App: A very simple CDI based WAB. Contains a Servlet using a CDI bean.</name>

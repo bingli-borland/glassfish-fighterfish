@@ -16,10 +16,10 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import org.glassfish.embeddable.CommandResult;
-import org.glassfish.embeddable.CommandRunner;
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.CommandResult;
+import com.astra.enterprise.embeddable.CommandRunner;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

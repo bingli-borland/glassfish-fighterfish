@@ -26,7 +26,7 @@
     </parent>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app14</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>test.app14: JNDI Lookup of a DataSource from OSGi bundle</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/test/app/app14</connection>

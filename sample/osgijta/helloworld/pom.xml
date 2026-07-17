@@ -20,7 +20,7 @@
   </parent>
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.osgijta.helloworld</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Demonstrates use of Transaction Service from OSGi bundles</name>
   <scm>
     <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/osgijta/helloworld</connection>

@@ -17,7 +17,7 @@
 package org.glassfish.osgijavaeebase;
 
 import com.sun.enterprise.deploy.shared.AbstractReadableArchive;
-import org.glassfish.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
 import org.osgi.framework.Bundle;
 
 import java.io.IOException;

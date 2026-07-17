@@ -19,7 +19,7 @@ package org.glassfish.osgi.ee.resources;
 import com.sun.enterprise.config.serverbeans.ResourceRef;
 import com.sun.enterprise.config.serverbeans.Server;
 import com.sun.enterprise.config.serverbeans.Servers;
-import org.glassfish.internal.api.ServerContext;
+import com.astra.enterprise.internal.api.ServerContext;
 
 import java.util.List;
 

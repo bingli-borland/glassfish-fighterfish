@@ -20,7 +20,7 @@
   </parent>
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.osgihttp.helloworld</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>Hello World OSGi/HTTP Sample</name>
   <scm>
     <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/osgihttp/helloworld</connection>

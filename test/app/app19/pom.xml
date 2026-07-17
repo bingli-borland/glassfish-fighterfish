@@ -27,7 +27,7 @@
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.app19</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>test.app19</name>
     <scm>
         <connection>scm:svn:https://github.com/eclipse-ee4j/glassfish-fighterfish/test/app/app19</connection>

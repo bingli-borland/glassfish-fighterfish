@@ -17,11 +17,11 @@
 package org.glassfish.osgijavaeebase;
 
 import com.sun.enterprise.deploy.shared.AbstractArchiveHandler;
-import org.glassfish.api.deployment.DeploymentContext;
-import org.glassfish.api.deployment.archive.ReadableArchive;
+import com.astra.enterprise.api.deployment.DeploymentContext;
+import com.astra.enterprise.api.deployment.archive.ReadableArchive;
 
 /**
- * An implementation of {@link org.glassfish.api.deployment.archive.ArchiveHandler}
+ * An implementation of {@link com.astra.enterprise.api.deployment.archive.ArchiveHandler}
  * specialized for OSGi-ed WAR files. It is not exported as a Service.
  *
  * @author Sanjeeb.Sahoo@Sun.COM

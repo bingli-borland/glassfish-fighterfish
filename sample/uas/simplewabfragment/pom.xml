@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.uas.simplewabfragment</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>Simple WAB fragment for sample.uas.simplewab</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/uas/simplewabfragment</connection>

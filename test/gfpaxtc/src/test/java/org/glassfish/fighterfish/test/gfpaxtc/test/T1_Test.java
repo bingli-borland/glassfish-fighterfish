@@ -16,9 +16,9 @@
 
 package org.glassfish.fighterfish.test.gfpaxtc.test;
 
-import org.glassfish.embeddable.CommandResult;
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.CommandResult;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;

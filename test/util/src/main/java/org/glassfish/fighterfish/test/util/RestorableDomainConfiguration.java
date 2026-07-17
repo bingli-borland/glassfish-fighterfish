@@ -16,8 +16,8 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 
 /**
  * Represents a domain configuration change that can be restored to its original value.

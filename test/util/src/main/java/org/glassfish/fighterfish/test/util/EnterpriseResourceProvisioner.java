@@ -17,9 +17,9 @@
 package org.glassfish.fighterfish.test.util;
 
 import junit.framework.Assert;
-import org.glassfish.embeddable.CommandResult;
-import org.glassfish.embeddable.GlassFish;
-import org.glassfish.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.CommandResult;
+import com.astra.enterprise.embeddable.GlassFish;
+import com.astra.enterprise.embeddable.GlassFishException;
 import org.osgi.framework.BundleContext;
 
 import java.io.File;
