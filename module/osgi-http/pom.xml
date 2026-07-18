@@ -64,7 +64,7 @@
                         </Include-Resource>
                         -->
                         <!-- We have a dependency on version of 3.1.1 of web container-->
-                        <Import-Package>com.sun.enterprise.web; version=3.1.1, *</Import-Package>
+                        <Import-Package>com.sun.enterprise.web; version=1.0, *</Import-Package>
                         <!--
                             We depend on Grizzly using Class.forName. See GLASSFISH-16538
                         -->
