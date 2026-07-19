@@ -30,7 +30,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 /**
- * Resource-Manager to export JDBC resources in GlassFish to OSGi's service-registry
+ * Resource-Manager to export JDBC resources in AnLingXin to OSGi's service-registry
  *
  * @author Jagadish Ramu
  */

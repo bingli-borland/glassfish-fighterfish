@@ -31,7 +31,7 @@
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>test.util</artifactId>
     <version>1.1.8</version>
-    <name>A junit extension which helps writing test cases involving GlassFish/Maven/JUnit/PAX-EXAM easier</name>
+    <name>A junit extension which helps writing test cases involving AnLingXin/Maven/JUnit/PAX-EXAM easier</name>
     <description>
         This is a small junit extension developed in FighterFish project to make the task of writing
         test cases using maven/glassfish/junit much easier. It in turn leverages pax-exam test framework.
@@ -197,7 +197,7 @@
     <dependencies>
         <dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>3.1.1</version>
         </dependency>
         <dependency>
@@ -277,7 +277,7 @@
     </dependencies>
 
     <!--
-    We want to run the tests multiple times with different settings like with an existing GlassFish
+    We want to run the tests multiple times with different settings like with an existing AnLingXin
     installation, without an installation, with Felix and Equinox, etc. So, we create multiple
     test executions.
     -->
@@ -290,7 +290,7 @@
                 </os>
             </activation>
             <dependencies>
-                <!-- Add tools.jar to classpath as required by GlassFish. See ASMainHelper#createOSGiFrameworkLauncherCL -->
+                <!-- Add tools.jar to classpath as required by AnLingXin. See ASMainHelper#createOSGiFrameworkLauncherCL -->
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
@@ -319,7 +319,7 @@
                 </dependency>
             </dependencies>
             <properties>
-                <GlassFish_Platform>Felix</GlassFish_Platform>
+                <AnLingXin_Platform>Felix</AnLingXin_Platform>
             </properties>
         </profile>
 
@@ -337,7 +337,7 @@
                 </dependency>
             </dependencies>
             <properties>
-                <GlassFish_Platform>Equinox</GlassFish_Platform>
+                <AnLingXin_Platform>Equinox</AnLingXin_Platform>
             </properties>
         </profile>
 
@@ -368,8 +368,8 @@
         </profile>
 
         <!--
-        In this profile, the test framework downloads and installs glassfish and uses it to run tests.
-        The location to download glassfish can be overridden via a property called fighterfish.provisioner.url.
+        In this profile, the test framework downloads and installs AnLingXin and uses it to run tests.
+        The location to download AnLingXin can be overridden via a property called fighterfish.provisioner.url.
         -->
         <profile>
             <id>TestWithoutInstallation</id>
@@ -394,7 +394,7 @@
                                     <systemPropertyVariables>
                                         <fighterfish.provisioner.url>${fighterfish.provisioner.url}</fighterfish.provisioner.url>
                                         <org.osgi.framework.storage>
-                                            ${project.build.directory}/osgi-cache/${GlassFish_Platform}/TestWithoutInstallation
+                                            ${project.build.directory}/osgi-cache/${AnLingXin_Platform}/TestWithoutInstallation
                                         </org.osgi.framework.storage>
                                     </systemPropertyVariables>
                                 </configuration>
@@ -406,10 +406,10 @@
         </profile>
 
         <!--
-        In this profile, it is NOT the responsibility of test framework to install glassfish.
-        So, we use maven-dependency-plugin:unpack to install glassfish in target dir and pass its
+        In this profile, it is NOT the responsibility of test framework to install AnLingXin.
+        So, we use maven-dependency-plugin:unpack to install AnLingXin in target dir and pass its
         location to test framework via com.sun.aas.installRoot property.
-        We have hard coded the version of glassfish to install,
+        We have hard coded the version of AnLingXin to install,
         because the purpose of this profile is to make sure that this utility can use an existing installation.
         If we want to test compatibility with various gf versions, we can easily
         do that using TestWithoutInstallation profile by overriding fighterfish.provisioner.url.
@@ -428,7 +428,7 @@
                         <artifactId>maven-dependency-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>install-glassfish</id>
+                                <id>install-AnLingXin</id>
                                 <goals>
                                     <goal>unpack</goal>
                                 </goals>
@@ -466,7 +466,7 @@
                                             ${project.build.directory}/stages/glassfish3/glassfish
                                         </com.sun.aas.installRoot>
                                         <org.osgi.framework.storage>
-                                            ${project.build.directory}/osgi-cache/${GlassFish_Platform}/TestWithInstallation
+                                            ${project.build.directory}/osgi-cache/${AnLingXin_Platform}/TestWithInstallation
                                         </org.osgi.framework.storage>
                                     </systemPropertyVariables>
                                 </configuration>

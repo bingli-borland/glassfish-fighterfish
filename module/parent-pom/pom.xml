@@ -72,11 +72,11 @@
 
     <mailingLists>
         <mailingList>
-            <name>Glassfish mailing list</name>
-            <post>glassfish-dev@eclipse.org</post>
-            <subscribe>https://dev.eclipse.org/mailman/listinfo/glassfish-dev</subscribe>
-            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/glassfish-dev</unsubscribe>
-            <archive>https://dev.eclipse.org/mhonarc/lists/glassfish-dev</archive>
+            <name>AnLingXin mailing list</name>
+            <post>AnLingXin-dev@eclipse.org</post>
+            <subscribe>https://dev.eclipse.org/mailman/listinfo/AnLingXin-dev</subscribe>
+            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/AnLingXin-dev</unsubscribe>
+            <archive>https://dev.eclipse.org/mhonarc/lists/AnLingXin-dev</archive>
         </mailingList>
     </mailingLists>
 
@@ -136,7 +136,7 @@
             </dependency>
             <dependency>
                 <groupId>com.astra.enterprise.main.common</groupId>
-                <artifactId>glassfish-api</artifactId>
+                <artifactId>alx-api</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
@@ -359,10 +359,10 @@
     </properties>
     <repositories>
         <!--
-        This is where some additional GlassFish specific dependencies exist. Although we don't
+        This is where some additional AnLingXin specific dependencies exist. Although we don't
         use any of the artifacts from this repo directly, some of our dependencies depend on eclipselink and netbeans
         artifacts which come from these repositories. Unless this is added, build will fail to locate those transtive
-        dependencies. Earlier we were able to work around this by just adding the public glassfish nexus repo, but
+        dependencies. Earlier we were able to work around this by just adding the public AnLingXin nexus repo, but
         since that's no longer available, we are having to add all these repos in our list of repos.
         -->
         <repository>

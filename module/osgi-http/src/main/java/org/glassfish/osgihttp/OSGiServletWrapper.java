@@ -19,7 +19,7 @@ package org.glassfish.osgihttp;
 import com.sun.enterprise.web.WebModule;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.StandardWrapper;
-import com.astra.enterprise.web.valve.GlassFishValve;
+import com.astra.enterprise.web.valve.AnLingXinValve;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
@@ -51,7 +51,7 @@ public class OSGiServletWrapper extends StandardWrapper implements Wrapper {
         this.servlet = servlet;
         this.config = config;
         this.webModule = webModule;
-        // Set init params in the wrapper itself to avoid issues as reported in GLASSFISH-18492
+        // Set init params in the wrapper itself to avoid issues as reported in AnLingXin-18492
         Set<String> conflicts = setInitParameters(config.getInitParameters());
         assert(conflicts.isEmpty());
         setOSGi(true);
@@ -114,7 +114,7 @@ public class OSGiServletWrapper extends StandardWrapper implements Wrapper {
     // Override addValve as StandardWrapper has put in an optimisation
     // and does not support adding any valve (see issue #1343).
     @Override
-    public synchronized void addValve(GlassFishValve valve) {
+    public synchronized void addValve(AnLingXinValve valve) {
         getPipeline().addValve(valve);
     }
 

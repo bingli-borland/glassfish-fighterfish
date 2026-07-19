@@ -17,8 +17,8 @@
 package org.glassfish.fighterfish.test.it;
 
 import com.astra.enterprise.embeddable.Deployer;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.glassfish.fighterfish.test.util.*;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -57,12 +57,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app0
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp0() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp0() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp0", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -83,12 +83,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app1
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp1() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp1() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp1", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -114,12 +114,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app2
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp2() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp2() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp2", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -145,12 +145,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app3
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp3() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp3() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp3", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -171,12 +171,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app4
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp4() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp4() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp4", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -197,12 +197,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app5
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp5() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp5() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp5", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -223,13 +223,13 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app6
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
     @Ignore // This is currently failing for EclipseLink's inability to handle URL with bundle scheme.
-    public void testapp6() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp6() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp6", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -244,13 +244,13 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app7
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
     @Ignore // This is currently failing for EclipseLink's inability to handle URL with bundle scheme.
-    public void testapp7() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp7() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp7", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -265,12 +265,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app8
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp8() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp8() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp8", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -285,12 +285,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app9
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp9() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp9() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp9", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -312,12 +312,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app10
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp10() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp10() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp10", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -339,12 +339,12 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app11.ejb
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp11_ejb() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp11_ejb() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp11_ejb", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -363,13 +363,13 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app11 as a WAB
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
     @Ignore // Currently this does not work because of remote ejb class loading issue yet to be understood and filed as a bug
-    public void testapp11_wab() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp11_wab() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp11_wab", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -397,13 +397,13 @@ public class T2_Test extends AbstractTestObject {
     /**
      * Tests test.app11 as a plain war
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
     @Ignore // Currently this does not work because of remote ejb class loading issue yet to be understood and filed as a bug
-    public void testapp11_war() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp11_war() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp11_war", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         String appName = null;
@@ -416,7 +416,7 @@ public class T2_Test extends AbstractTestObject {
             ejbBundle.deploy(getTimeout(), TimeUnit.MILLISECONDS);
 
             // let's deploy a regular web app
-            appName = tc.getGlassFish().getDeployer().deploy(URI.create(location_war), "--contextroot", "test.app11");
+            appName = tc.getAnLingXin().getDeployer().deploy(URI.create(location_war), "--contextroot", "test.app11");
             final String request = "http://localhost:8080/test.app11/TestServlet";
             final String expectedResponse = "HELLO WORLD";
             String response = getResponse(new URL(request));
@@ -424,7 +424,7 @@ public class T2_Test extends AbstractTestObject {
             assertThat(response, new StringPatternMatcher(expectedResponse));
         } finally {
             if (appName != null) {
-                tc.getGlassFish().getDeployer().undeploy(appName);
+                tc.getAnLingXin().getDeployer().undeploy(appName);
             }
             tc.destroy();
         }
@@ -435,7 +435,7 @@ public class T2_Test extends AbstractTestObject {
      *
      */
     @Test
-    public void testapp12() throws BundleException, GlassFishException, InterruptedException, IOException {
+    public void testapp12() throws BundleException, AnLingXinException, InterruptedException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp12", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -477,7 +477,7 @@ public class T2_Test extends AbstractTestObject {
 
 
     @Test
-    public void testapp13() throws GlassFishException, InterruptedException, BundleException {
+    public void testapp13() throws AnLingXinException, InterruptedException, BundleException {
         logger.logp(Level.INFO, "T2_Test", "testapp13", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -497,7 +497,7 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void testapp14() throws GlassFishException, InterruptedException, BundleException {
+    public void testapp14() throws AnLingXinException, InterruptedException, BundleException {
         logger.logp(Level.INFO, "T2_Test", "testapp14", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -516,7 +516,7 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void testapp15() throws GlassFishException, InterruptedException, BundleException {
+    public void testapp15() throws AnLingXinException, InterruptedException, BundleException {
         logger.logp(Level.INFO, "T2_Test", "testapp15", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -535,7 +535,7 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void testapp16() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp16() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp16", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         final String cfName = "jms/fighterfish.TestApp16ConnectionFactory";
@@ -589,7 +589,7 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void testapp17() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp17() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp17", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -607,7 +607,7 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void testapp18() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp18() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp18", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -637,14 +637,14 @@ public class T2_Test extends AbstractTestObject {
     }
 
     /**
-     * Regression test for  GLASSFISH-11748
-     * @throws GlassFishException
+     * Regression test for  AnLingXin-11748
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      * @throws IOException
      */
     @Test
-    public void testapp19() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp19() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp19", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -660,14 +660,14 @@ public class T2_Test extends AbstractTestObject {
     }
 
     /**
-     * Regression test case for GLASSFISH_18370
+     * Regression test case for AnLingXin_18370
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void testapp20() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void testapp20() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T2_Test", "testapp20", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -676,7 +676,7 @@ public class T2_Test extends AbstractTestObject {
             WebAppBundle wab = new WebAppBundle(ctx, bundle);
             wab.deploy(getTimeout(), TimeUnit.MILLISECONDS);
             final String request = "/";
-            final String expectedResponse = "GLASSFISH-18370 has been fixed!";
+            final String expectedResponse = "AnLingXin-18370 has been fixed!";
             String response = wab.getHttpGetResponse(request);
             logger.logp(Level.INFO, "T2_Test", "testapp20", "response = {0}", new Object[]{response});
             assertThat(response, new StringPatternMatcher(expectedResponse));
@@ -686,8 +686,8 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void test_GLASSFISH_12975() throws GlassFishException, InterruptedException, BundleException, IOException {
-        logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "ENTRY");
+    public void test_AnLingXin_12975() throws AnLingXinException, InterruptedException, BundleException, IOException {
+        logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         Bundle httpServiceBundle = null;
         Bundle bundle2 = null;
@@ -704,22 +704,22 @@ public class T2_Test extends AbstractTestObject {
             }
             httpService = OSGiUtil.getService(ctx, HttpService.class, getTimeout());
             assertNotNull(httpService);
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "httpService = {0}", new Object[]{httpService});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "httpService = {0}", new Object[]{httpService});
 
             String location = "mvn:org.apache.felix/org.apache.felix.webconsole/3.1.2/jar";
             String location2 = "mvn:com.astra.enterprise.main.osgi-platforms/felix-webconsole-extension/4.0.1-b02/jar";
             Bundle bundle = tc.installBundle(location);
-            // See GlASSFISH-20646: We need to install web-console-extension with a location that has AllPermission.
+            // See AnLingXin-20646: We need to install web-console-extension with a location that has AllPermission.
             // Since TestContext does not expose such an API, we have to install it ourselves and remember to uninstall
             // it when the test is done.
             InputStream is2 = null;
             try {
                 is2 = new URL(location2).openStream();
                 final String installLocation2 = System.getProperty("com.sun.aas.installRootURI") + "modules/autostart/felix-web-console-extension.jar";
-                logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "Installing bundle from {0} at location  {1}",
+                logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "Installing bundle from {0} at location  {1}",
                         new Object[]{location2, installLocation2});
                 bundle2 = ctx.installBundle(location2, is2);
-                logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "Installed {0}", new Object[]{bundle2});
+                logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "Installed {0}", new Object[]{bundle2});
             } finally {
                 if (is2 != null) is2.close();
             }
@@ -734,7 +734,7 @@ public class T2_Test extends AbstractTestObject {
             });
 
             String testurl = "http://localhost:8080/osgi/system/console/bundles";
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "testurl = {0}", new Object[]{testurl});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "testurl = {0}", new Object[]{testurl});
             URL url = new URL(testurl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
@@ -744,14 +744,14 @@ public class T2_Test extends AbstractTestObject {
                 conn.connect();
                 responseCode = conn.getResponseCode();
                 if (responseCode != HttpURLConnection.HTTP_OK) {
-                    logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "Sleeping for 5 Seconds on testurl = {0}", new Object[]{testurl});
+                    logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "Sleeping for 5 Seconds on testurl = {0}", new Object[]{testurl});
                     Thread.sleep(5000);
                 } else {
                     break;
                 }
             }
             String responseMessage = conn.getResponseMessage();
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "responsecode = {0} responseMessage = {1}", new Object[]{responseCode, responseMessage});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "responsecode = {0} responseMessage = {1}", new Object[]{responseCode, responseMessage});
             assertEquals("Admin Console Not Available", HttpURLConnection.HTTP_OK, responseCode);
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
@@ -759,11 +759,11 @@ public class T2_Test extends AbstractTestObject {
             while ((inputLine = in.readLine()) != null)
                 stringBuilder.append(inputLine + "\n");
             in.close();
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "Response Body = {0}", new Object[]{stringBuilder.toString()});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "Response Body = {0}", new Object[]{stringBuilder.toString()});
         } finally {
             if (bundle2 != null) {
                 bundle2.uninstall();
-                logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_12975", "Uninstalled {0}", new Object[]{bundle2});
+                logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_12975", "Uninstalled {0}", new Object[]{bundle2});
             }
             tc.destroy();
             if (httpServiceBundle != null) {
@@ -773,11 +773,11 @@ public class T2_Test extends AbstractTestObject {
     }
 
     @Test
-    public void test_GLASSFISH_18159() throws GlassFishException, InterruptedException, BundleException, IOException {
-        logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_18159", "ENTRY");
+    public void test_AnLingXin_18159() throws AnLingXinException, InterruptedException, BundleException, IOException {
+        logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_18159", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
-           //Running a regression test for fix created on GLASSFISH-18159
+           //Running a regression test for fix created on AnLingXin-18159
             String location = "mvn:org.glassfish.fighterfish/test.app3/1.0.0/war";
             Bundle bundle = tc.installBundle(location);
             bundle.start();
@@ -790,23 +790,23 @@ public class T2_Test extends AbstractTestObject {
     }
     
     /**
-     * Regression test case for GLASSFISH_19662
+     * Regression test case for AnLingXin_19662
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      */
     @Test
-    public void test_GLASSFISH_19662() throws GlassFishException, InterruptedException, BundleException, IOException {
-    	logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_19662", "ENTRY");
+    public void test_AnLingXin_19662() throws AnLingXinException, InterruptedException, BundleException, IOException {
+    	logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_19662", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
         	//firstly, we install sample.uas.api bundle
         	String location = "mvn:org.glassfish.fighterfish/sample.uas.api/1.0.0/jar";
             tc.installBundle(location);
             
-            GlassFish glassfish = tc.getGlassFish();
-            Deployer deployer = glassfish.getDeployer();
+            AnLingXin AnLingXin = tc.getAnLingXin();
+            Deployer deployer = AnLingXin.getDeployer();
             //secondly, we install sample.uas.simplewabfragment bundle
             location = "mvn:org.glassfish.fighterfish/sample.uas.simplewabfragment/1.0.0/jar";
             String wabfragmentName = deployer.deploy(URI.create(location), "--type=osgi");
@@ -824,11 +824,11 @@ public class T2_Test extends AbstractTestObject {
             final String reportServletSuccessful ="Service is not yet available";
             
             String response = URLHelper.getResponse(new URL(reportJspRequest));
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_19662", "response = {0}", new Object[]{response});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_19662", "response = {0}", new Object[]{response});
             assertThat(response, new StringPatternMatcher(reportJspSuccessful));
 
             response = URLHelper.getResponse(new URL(reportServletRequest));
-            logger.logp(Level.INFO, "T2_Test", "test_GLASSFISH_19662", "response = {0}", new Object[]{response});
+            logger.logp(Level.INFO, "T2_Test", "test_AnLingXin_19662", "response = {0}", new Object[]{response});
             assertThat(response, new StringPatternMatcher(reportServletSuccessful));
             
             deployer.undeploy(wabfragmentName);

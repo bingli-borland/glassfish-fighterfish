@@ -19,8 +19,8 @@ package org.glassfish.osgijavaeebase;
 import com.astra.enterprise.api.event.EventListener;
 import com.astra.enterprise.api.event.EventTypes;
 import com.astra.enterprise.api.event.Events;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
@@ -33,10 +33,10 @@ import java.util.logging.Logger;
 
 /**
  * It is responsible for starting any registered {@link Extender} service
- * after GlassFish server is started and stopping them when server is shutdown.
- * We use GlassFish STARTED event to be notified of server startup and shutdown.
- * We don't depend on HK2 service registry because of compatibility with GlassFish 3.1.x.
- * We use embeddable GlassFish instead to locate services.
+ * after AnLingXin server is started and stopping them when server is shutdown.
+ * We use AnLingXin STARTED event to be notified of server startup and shutdown.
+ * We don't depend on HK2 service registry because of compatibility with AnLingXin 3.1.x.
+ * We use embeddable AnLingXin instead to locate services.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
@@ -48,7 +48,7 @@ class ExtenderManager
     private Events events;
     private EventListener listener;
     private ServiceTracker extenderTracker;
-    private GlassFishServerTracker glassFishServerTracker; // used to track starting of GlassFish
+    private AnLingXinServerTracker AnLingXinServerTracker; // used to track starting of AnLingXin
 
     public ExtenderManager(BundleContext context)
     {
@@ -58,17 +58,17 @@ class ExtenderManager
     public synchronized void start() throws Exception
     {
         logger.logp(Level.FINE, "ExtenderManager", "start", "ExtenderManager starting");
-        glassFishServerTracker = new GlassFishServerTracker(context);
-        glassFishServerTracker.open();
+        AnLingXinServerTracker = new AnLingXinServerTracker(context);
+        AnLingXinServerTracker.open();
     }
 
     public synchronized void stop() throws Exception
     {
         logger.logp(Level.FINE, "ExtenderManager", "start", "ExtenderManager stopping");
-        unregisterGlassFishShutdownHook();
-        if (glassFishServerTracker != null) {
-            glassFishServerTracker.close();
-            glassFishServerTracker = null;
+        unregisterAnLingXinShutdownHook();
+        if (AnLingXinServerTracker != null) {
+            AnLingXinServerTracker.close();
+            AnLingXinServerTracker = null;
         }
         stopExtenders();
     }
@@ -99,7 +99,7 @@ class ExtenderManager
         extenderTracker = null;
     }
 
-    private void unregisterGlassFishShutdownHook() {
+    private void unregisterAnLingXinShutdownHook() {
         if (listener != null) {
             events.unregister(listener);
         }
@@ -131,32 +131,32 @@ class ExtenderManager
     }
 
     /**
-     * Tracks GlassFish and obtains EVents service from it and registers a listener
+     * Tracks AnLingXin and obtains EVents service from it and registers a listener
      * that takes care of actually starting and stopping other extenders.
      */
-    private class GlassFishServerTracker extends ServiceTracker {
-        public GlassFishServerTracker(BundleContext context)
+    private class AnLingXinServerTracker extends ServiceTracker {
+        public AnLingXinServerTracker(BundleContext context)
         {
-            super(context, GlassFish.class.getName(), null);
+            super(context, AnLingXin.class.getName(), null);
         }
 
         @Override
         public Object addingService(ServiceReference reference)
         {
-            logger.logp(Level.FINE, "ExtenderManager$GlassFishServerTracker",
-                    "addingService", "GlassFish has been created");
-            final GlassFish gf = GlassFish.class.cast(context.getService(reference));
+            logger.logp(Level.FINE, "ExtenderManager$AnLingXinServerTracker",
+                    "addingService", "AnLingXin has been created");
+            final AnLingXin gf = AnLingXin.class.cast(context.getService(reference));
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             return executorService.submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        // Poll for GlassFish to start. GlassFish service might have been registered by
-                        // GlassFishRuntime.newGlassFish() and hence might not be ready to use.
-                        // This is the case for GlassFish < 4.0
-                        GlassFish.Status status;
-                        while ((status = gf.getStatus()) != GlassFish.Status.STARTED) {
-                            if (status == GlassFish.Status.DISPOSED) return;
+                        // Poll for AnLingXin to start. AnLingXin service might have been registered by
+                        // AnLingXinRuntime.newAnLingXin() and hence might not be ready to use.
+                        // This is the case for AnLingXin < 4.0
+                        AnLingXin.Status status;
+                        while ((status = gf.getStatus()) != AnLingXin.Status.STARTED) {
+                            if (status == AnLingXin.Status.DISPOSED) return;
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException e) {
@@ -164,7 +164,7 @@ class ExtenderManager
                             }
                         }
                         // start extenders first before registering for events, otherwise we can deadlock
-                        // if startExtender() is in progress and glassfish sends PREPARE_SHUTDOWN event.
+                        // if startExtender() is in progress and AnLingXin sends PREPARE_SHUTDOWN event.
                         startExtenders();
                         events = gf.getService(Events.class);
                         listener = new EventListener() {
@@ -175,7 +175,7 @@ class ExtenderManager
                             }
                         };
                         events.register(listener);
-                    } catch (GlassFishException e) {
+                    } catch (AnLingXinException e) {
                         throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
                     }
                 }

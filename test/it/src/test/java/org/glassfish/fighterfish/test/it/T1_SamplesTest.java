@@ -16,7 +16,7 @@
 
 package org.glassfish.fighterfish.test.it;
 
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.glassfish.fighterfish.test.util.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -51,7 +51,7 @@ public class T1_SamplesTest extends AbstractTestObject {
 
     @Test
     public void uas_sample_test()
-            throws GlassFishException, InterruptedException, BundleException, IOException {
+            throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T1_SamplesTest", "uas_sample_test", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -208,7 +208,7 @@ public class T1_SamplesTest extends AbstractTestObject {
     }
 
     @Test
-    public void osgihttp_helloworld_sample_test() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void osgihttp_helloworld_sample_test() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T1_SamplesTest", "osgihttp_helloworld_sample_test", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
@@ -264,7 +264,7 @@ public class T1_SamplesTest extends AbstractTestObject {
     }
 
     @Test
-    public void jaxrs_sample_test() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void jaxrs_sample_test() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "T1_SamplesTest", "jaxrs_sample_test", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {

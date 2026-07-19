@@ -16,8 +16,8 @@
 
 package org.glassfish.osgijdbc;
 
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import com.astra.enterprise.internal.api.ClassLoaderHierarchy;
 import org.glassfish.osgijavaeebase.Extender;
 import org.osgi.framework.*;
@@ -68,10 +68,10 @@ public class JDBCExtender implements Extender {
     }
 
     private <T> T getService(Class<T> type){
-        GlassFish gf = (GlassFish) bundleContext.getService(bundleContext.getServiceReference(GlassFish.class.getName()));
+        AnLingXin gf = (AnLingXin) bundleContext.getService(bundleContext.getServiceReference(AnLingXin.class.getName()));
         try {
             return gf.getService(type);
-        } catch (GlassFishException e) {
+        } catch (AnLingXinException e) {
             throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
         }
     }

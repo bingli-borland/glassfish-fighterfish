@@ -16,8 +16,8 @@
 
 package org.glassfish.fighterfish.test.it;
 
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.glassfish.fighterfish.test.util.AbstractTestObject;
 import org.glassfish.fighterfish.test.util.TestContext;
 import org.junit.Test;
@@ -41,20 +41,20 @@ public class SingleTest extends AbstractTestObject {
     private Logger logger = Logger.getLogger(getClass().getPackage().getName());
 
     /**
-     * Most simple test case. This test method waits a preconfigured amount of time for GlassFish to be started.
-     * If GlassFish does not start within that time, it fails.
+     * Most simple test case. This test method waits a preconfigured amount of time for AnLingXin to be started.
+     * If AnLingXin does not start within that time, it fails.
      *
-     * @throws GlassFishException
+     * @throws AnLingXinException
      * @throws InterruptedException
      * @throws BundleException
      * @throws IOException
      */
     @Test
-    public void test() throws GlassFishException, InterruptedException, BundleException, IOException {
+    public void test() throws AnLingXinException, InterruptedException, BundleException, IOException {
         logger.logp(Level.INFO, "SingleTest", "test", "ENTRY");
         TestContext tc = TestContext.create(getClass());
         try {
-            GlassFish gf = tc.getGlassFish();
+            AnLingXin gf = tc.getAnLingXin();
             assertNotNull(gf);
         } finally {
             tc.destroy();

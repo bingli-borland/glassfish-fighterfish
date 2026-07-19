@@ -78,7 +78,7 @@
         </dependency>
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>glassfish-api</artifactId>
+            <artifactId>alx-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

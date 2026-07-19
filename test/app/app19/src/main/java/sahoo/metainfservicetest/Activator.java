@@ -45,7 +45,7 @@ public class Activator implements BundleActivator {
              throw new RuntimeException("Marshall/UnMarshall of Persistence Object Failed.");
         }
 
-        // This works, because GlassFish uses StAX from JRE.
+        // This works, because AnLingXin uses StAX from JRE.
         try {
             javax.xml.stream.XMLInputFactory.newInstance();
         } catch(Exception e) {

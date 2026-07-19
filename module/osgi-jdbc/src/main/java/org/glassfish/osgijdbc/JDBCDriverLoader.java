@@ -96,7 +96,7 @@ public class JDBCDriverLoader {
     }
 
     /**
-     * Get a set of common database vendor names supported in GlassFish.
+     * Get a set of common database vendor names supported in AnLingXin.
      * @return database vendor names set.
      */
     private Set<String> getDatabaseVendorNames() {

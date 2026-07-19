@@ -10,8 +10,8 @@
 
 package org.glassfish.fighterfish.sample.embeddedgf.provisionerwebapp;
 
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -37,20 +37,20 @@ import java.util.concurrent.Executors;
  */
 
 @WebListener
-public class GlassFishProvisioner implements ServletContextListener {
+public class AnLingXinProvisioner implements ServletContextListener {
 
     private ServletContext servletContext;
     private volatile Framework framework;
-    private volatile GlassFish glassfish;
+    private volatile AnLingXin AnLingXin;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private String fwJndiName = FW_JNDI_NAME_DEFAULT;
     private String gfJndiName = GF_JNDI_NAME_DEFAULT;
     private String gfHome;
 
-    private static final String FW_JNDI_NAME_DEFAULT = "java:global/glassfish-osgi-framework";
-    private static final String GF_JNDI_NAME_DEFAULT = "java:global/glassfish-instance";
-    private static final String GLASSFISH_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
+    private static final String FW_JNDI_NAME_DEFAULT = "java:global/AnLingXin-osgi-framework";
+    private static final String GF_JNDI_NAME_DEFAULT = "java:global/AnLingXin-instance";
+    private static final String AnLingXin_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
     private Bundle gfMainBundle;
 
     @Resource
@@ -76,16 +76,16 @@ public class GlassFishProvisioner implements ServletContextListener {
             public void run() {
                 try {
                     waitForFramework();
-                    provisionGlassFish();
-                    waitForGlassFish();
-                    new InitialContext().rebind(gfJndiName, glassfish);
-                    log("bound " + glassfish + " in JNDI location: " + gfJndiName);
+                    provisionAnLingXin();
+                    waitForAnLingXin();
+                    new InitialContext().rebind(gfJndiName, AnLingXin);
+                    log("bound " + AnLingXin + " in JNDI location: " + gfJndiName);
                 } catch (InterruptedException e) {
                     log("got interrupted: ", e);
                     Thread.currentThread().interrupt();
                     return;
                 } catch (Exception e) {
-                    log("Something has gone wrong while provisioning GlassFish.", e);
+                    log("Something has gone wrong while provisioning AnLingXin.", e);
                 }
             }
         });
@@ -98,33 +98,33 @@ public class GlassFishProvisioner implements ServletContextListener {
     }
 
 
-    private void waitForGlassFish() throws InterruptedException, ExecutionException {
-        log("waiting for GlassFish");
-        ServiceTracker st = new ServiceTracker(framework.getBundleContext(), GlassFish.class.getName(), null);
+    private void waitForAnLingXin() throws InterruptedException, ExecutionException {
+        log("waiting for AnLingXin");
+        ServiceTracker st = new ServiceTracker(framework.getBundleContext(), AnLingXin.class.getName(), null);
         st.open();
         try {
-            glassfish = (GlassFish) st.waitForService(0);
+            AnLingXin = (AnLingXin) st.waitForService(0);
         } finally {
             st.close();
         }
-        new WaitForGlassFishToStart(glassfish).call();
+        new WaitForAnLingXinToStart(AnLingXin).call();
     }
 
-    private void provisionGlassFish() throws Exception {
+    private void provisionAnLingXin() throws Exception {
         BundleContext bctx = framework.getBundleContext();
         if (gfHome == null) {
             gfHome = bctx.getProperty("com.sun.aas.installRoot");
         }
         if (gfHome == null) {
-            throw new RuntimeException("Please set GlassFish home either by setting a property called " +
-                    GLASSFISH_INSTALL_ROOT_PROP + " either in the system or in OSGi properties file.\n" +
+            throw new RuntimeException("Please set AnLingXin home either by setting a property called " +
+                    AnLingXin_INSTALL_ROOT_PROP + " either in the system or in OSGi properties file.\n" +
                     "Alternatively, you can set it using runtime deployment descriptor or " +
                     "deployment plan while deploying this war file.");
         }
-        log("Going to provision GlassFish bundles from " + gfHome);
+        log("Going to provision AnLingXin bundles from " + gfHome);
         File jar = new File(gfHome, "modules" + File.separator + "glassfish.jar");
         if (!jar.exists()) {
-            throw new Exception(jar.getAbsolutePath() + " does not exist. Check what you have set as " + GLASSFISH_INSTALL_ROOT_PROP);
+            throw new Exception(jar.getAbsolutePath() + " does not exist. Check what you have set as " + AnLingXin_INSTALL_ROOT_PROP);
         }
         URL url = jar.toURI().toURL();
         this.log("Installing bundle [" + url + "]");
@@ -144,10 +144,10 @@ public class GlassFishProvisioner implements ServletContextListener {
             try {
                 gfMainBundle.stop();
             } catch (BundleException e) {
-                log("Error while stopping glassfish main bundle " + gfMainBundle, e);
+                log("Error while stopping AnLingXin main bundle " + gfMainBundle, e);
             }
         }
-        glassfish = null;
+        AnLingXin = null;
     }
 
     /**
@@ -171,31 +171,31 @@ public class GlassFishProvisioner implements ServletContextListener {
     }
 
     /**
-     * Waits for GlassFish to start.
+     * Waits for AnLingXin to start.
      */
-    private class WaitForGlassFishToStart implements Callable<Void> {
+    private class WaitForAnLingXinToStart implements Callable<Void> {
 
-        GlassFish gf;
+        AnLingXin gf;
 
-        private WaitForGlassFishToStart(GlassFish gf) {
+        private WaitForAnLingXinToStart(AnLingXin gf) {
             this.gf = gf;
         }
 
         @Override
         public Void call() throws InterruptedException {
             try {
-                // Poll for GlassFish to start. GlassFish service might have been registered by
-                // GlassFishRuntime.newGlassFish() and hence might not be ready to use.
-                GlassFish.Status status = gf.getStatus();
-                while (status != GlassFish.Status.STARTED && status != GlassFish.Status.DISPOSED) {
+                // Poll for AnLingXin to start. AnLingXin service might have been registered by
+                // AnLingXinRuntime.newAnLingXin() and hence might not be ready to use.
+                AnLingXin.Status status = gf.getStatus();
+                while (status != AnLingXin.Status.STARTED && status != AnLingXin.Status.DISPOSED) {
                     Thread.sleep(1000);
                 }
-                if (status != GlassFish.Status.STARTED) {
+                if (status != AnLingXin.Status.STARTED) {
                     log("status = " + status);
-                    throw new RuntimeException("GlassFish didn't start properly");
+                    throw new RuntimeException("AnLingXin didn't start properly");
                 }
 
-            } catch (GlassFishException e) {
+            } catch (AnLingXinException e) {
                 throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
             }
             return null;

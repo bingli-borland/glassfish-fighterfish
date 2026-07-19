@@ -31,7 +31,7 @@ import java.util.Hashtable;
 
 /**
  * Resource-Manager to export jms-connection-factories (JMS-RA Connector-Resources)
- * in GlassFish to OSGi's service-registry
+ * in AnLingXin to OSGi's service-registry
  *
  * @author Jagadish Ramu
  */

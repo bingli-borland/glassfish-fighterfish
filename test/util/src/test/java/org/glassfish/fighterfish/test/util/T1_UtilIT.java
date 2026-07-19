@@ -18,8 +18,8 @@ package org.glassfish.fighterfish.test.util;
 
 import com.astra.enterprise.embeddable.CommandResult;
 import com.astra.enterprise.embeddable.CommandRunner;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,10 +33,10 @@ import org.osgi.framework.BundleException;
  */
 @RunWith(FighterFishJUnitRunner.class)
 public class T1_UtilIT {
-    @Test public void test() throws GlassFishException, InterruptedException, BundleException {
+    @Test public void test() throws AnLingXinException, InterruptedException, BundleException {
         TestContext tc = TestContext.create(getClass());
         try {
-            GlassFish gf = tc.getGlassFish();
+            AnLingXin gf = tc.getAnLingXin();
             CommandRunner cr = gf.getCommandRunner();
             cr.setTerse(true);
             CommandResult result = cr.run("version");

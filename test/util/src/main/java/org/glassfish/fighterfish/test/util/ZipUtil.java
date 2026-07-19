@@ -30,7 +30,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * A simple utility to extract a zip input stream. This is used to install GlassFish when user does not have
+ * A simple utility to extract a zip input stream. This is used to install AnLingXin when user does not have
  * an installation.
  *
  * @author sanjeeb.sahoo@oracle.com

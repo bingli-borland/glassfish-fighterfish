@@ -28,7 +28,7 @@
     <artifactId>osgi-jpa</artifactId>
     <version>1.0.4</version>
     <packaging>jar</packaging>
-    <name>GlassFish JPA Support (rfc #143) for OSGi Bundles</name>
+    <name>AnLingXin JPA Support (rfc #143) for OSGi Bundles</name>
     
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

@@ -29,7 +29,7 @@
     <version>2.0.2</version>
     <packaging>jar</packaging>
     
-    <name>GlassFish Resources support for OSGi Bundles</name>
+    <name>AnLingXin Resources support for OSGi Bundles</name>
 
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>
@@ -62,7 +62,7 @@
         
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>${glassfish.version}</version>
             <optional>true</optional>
         </dependency>

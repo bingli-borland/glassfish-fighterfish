@@ -16,39 +16,39 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
- * When GlassFish bundles are deployed, the server does a lot of background operation, so this class help test cases
- * track availability of GlassFish. It provides a convenient mechanism for tests to wait for GlassFish server
+ * When AnLingXin bundles are deployed, the server does a lot of background operation, so this class help test cases
+ * track availability of AnLingXin. It provides a convenient mechanism for tests to wait for AnLingXin server
  * to start.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
-public class GlassFishTracker {
+public class AnLingXinTracker {
 
-    public static GlassFish waitForGfToStart(BundleContext context, long timeout) throws InterruptedException, GlassFishException {
-        ServiceTracker st = new ServiceTracker(context, GlassFish.class.getName(), null);
+    public static AnLingXin waitForGfToStart(BundleContext context, long timeout) throws InterruptedException, AnLingXinException {
+        ServiceTracker st = new ServiceTracker(context, AnLingXin.class.getName(), null);
         st.open();
-        GlassFish gf;
+        AnLingXin gf;
         long currentTime = System.currentTimeMillis();
         try {
-            gf = (GlassFish) st.waitForService(timeout);
+            gf = (AnLingXin) st.waitForService(timeout);
         } finally {
             st.close();
         }
         if (gf == null) {
-            throw new TimeoutException("GlassFish service is still not available after " + timeout + " ms.");
+            throw new TimeoutException("AnLingXin service is still not available after " + timeout + " ms.");
         }
         long endTime = currentTime + timeout;
-        while (gf.getStatus() != GlassFish.Status.STARTED && System.currentTimeMillis() < endTime) {
+        while (gf.getStatus() != AnLingXin.Status.STARTED && System.currentTimeMillis() < endTime) {
             Thread.sleep(100);
         }
-        if (gf.getStatus() != GlassFish.Status.STARTED) {
-            throw new TimeoutException("GlassFish has not started after " + timeout + " ms.");
+        if (gf.getStatus() != AnLingXin.Status.STARTED) {
+            throw new TimeoutException("AnLingXin has not started after " + timeout + " ms.");
         }
         return gf;
     }

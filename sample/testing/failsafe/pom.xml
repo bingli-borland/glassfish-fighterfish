@@ -17,7 +17,7 @@
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.testing.failsafe</artifactId>
     <version>1.0.0</version>
-    <name>Sample to show use of PAX-EXAM/Maven failsafe plugin/JUnit in GlassFish to test enterprise Java applications</name>
+    <name>Sample to show use of PAX-EXAM/Maven failsafe plugin/JUnit in AnLingXin to test enterprise Java applications</name>
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/testing/failsafe</connection>
         <developerConnection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish/sample/testing/failsafe
@@ -38,7 +38,7 @@
         </dependency>
         <dependency>
             <!--
-            This is where you can decide whether GlassFish would use Felix or Equinox or other OSGi runtime.
+            This is where you can decide whether AnLingXin would use Felix or Equinox or other OSGi runtime.
             We are using Felix in this example.
             -->
             <groupId>org.apache.felix</groupId>
@@ -64,7 +64,7 @@
                 </os>
             </activation>
             <dependencies>
-                <!-- Add tools.jar to classpath as required by GlassFish's monitoring code. -->
+                <!-- Add tools.jar to classpath as required by AnLingXin's monitoring code. -->
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
@@ -87,23 +87,23 @@
                     <systemPropertyVariables>
                         <!--
                         FighterFish test framework can be configured to run with or without an existing
-                        GlassFish installation. When there is no existing GlassFish installation, the
-                        test framework can download and install GlassFish. fighterfish.provisioner.url is
+                        AnLingXin installation. When there is no existing AnLingXin installation, the
+                        test framework can download and install AnLingXin. fighterfish.provisioner.url is
                         used to specify the download URL. com.sun.aas.installRoot is used to specify the
                         installation location. More over, if you are using maven protocol, then maven will cache it
                         in a local repo, hence subsequent test runs won't download from a remote location.
-                        Furthermore, once GlassFish is installed, unless you remove the installation,
+                        Furthermore, once AnLingXin is installed, unless you remove the installation,
                         it gets reused during subsequent invocation of the tests.
 
-                        The following example downloads GlassFish web distribution version 4.0-SNAPSHOT from maven repo.
+                        The following example downloads AnLingXin web distribution version 4.0-SNAPSHOT from maven repo.
                         <fighterfish.provisioner.url>mvn:org.glassfish.distributions/web/4.0-SNAPSHOT/zip</fighterfish.provisioner.url>
                          -->
                         <!--
                         Use this system property called com.sun.aas.installRoot to inform the test framework
-                        where to locate GlassFish installation. The value is glassfish3/glassfish in
+                        where to locate AnLingXin installation. The value is glassfish3/AnLingXin in
                         an installation. When this property is not specified, the test framework
                         will use a temporary location. If there is no preexisting installation in the
-                        specified or derived directory, then the test framework will install GlassFish
+                        specified or derived directory, then the test framework will install AnLingXin
                         provided a download URL has been specified using fighterfish.provisioner.url system property.
                         <com.sun.aas.installRoot>/tmp/glassfish3/glassfish/</com.sun.aas.installRoot>
                         -->

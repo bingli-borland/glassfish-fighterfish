@@ -104,7 +104,7 @@ class OSGiWebDeploymentContext extends OSGiDeploymentContext {
     private class WABClassLoader extends WebappClassLoader {
         /*
          * We need this class loader for variety of reasons explained below:
-         * a) GlassFish default servlet (DefaultServlet.java), the servlet responsible for serving static content
+         * a) AnLingXin default servlet (DefaultServlet.java), the servlet responsible for serving static content
          * fails to serve any static content from META-INF/resources/ of WEB-INF/lib/*.jar, if the classloader is not
          * an instanceof WebappClassLoader.
          * b) DefaultServlet also expects WebappClassLoader's resourceEntries to be properly populated.

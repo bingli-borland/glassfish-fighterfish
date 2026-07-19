@@ -16,8 +16,8 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -67,10 +67,10 @@ public class TestContext {
         resourceProvisioner = new EnterpriseResourceProvisioner(ctx);
     }
 
-    public static TestContext create(Class testClass) throws GlassFishException, InterruptedException {
+    public static TestContext create(Class testClass) throws AnLingXinException, InterruptedException {
         BundleContext ctx = FrameworkUtil.getBundle(testClass).getBundleContext();
         TestContext tc = new TestContext(getNextTestId(testClass), ctx);
-        tc.getGlassFish();
+        tc.getAnLingXin();
         tc.configureEmbeddedDerby();
         return tc;
     }
@@ -80,7 +80,7 @@ public class TestContext {
         return testClass.getName() + "-" + String.valueOf(testIdGen.incrementAndGet());
     }
 
-    public void destroy() throws BundleException, GlassFishException {
+    public void destroy() throws BundleException, AnLingXinException {
         logger.info("Destroying test context for test id: " + testID);
         try {
             bundleProvisioner.uninstallAllTestBundles();
@@ -149,12 +149,12 @@ public class TestContext {
         return deployEjbBundle(installBundle(location), services);
     }
 
-    public GlassFish getGlassFish() throws GlassFishException, InterruptedException {
-        return GlassFishTracker.waitForGfToStart(ctx, TestsConfiguration.getInstance().getTimeout());
+    public AnLingXin getAnLingXin() throws AnLingXinException, InterruptedException {
+        return AnLingXinTracker.waitForGfToStart(ctx, TestsConfiguration.getInstance().getTimeout());
     }
 
-    public void configureEmbeddedDerby() throws GlassFishException, InterruptedException {
-        resourceProvisioner.configureEmbeddedDerby(getGlassFish(),
+    public void configureEmbeddedDerby() throws AnLingXinException, InterruptedException {
+        resourceProvisioner.configureEmbeddedDerby(getAnLingXin(),
                 testID,
                 testID);
     }
@@ -175,12 +175,12 @@ public class TestContext {
         return bundleProvisioner.installTestBundle(location);
     }
 
-    public void createJmsCF(String cfName) throws GlassFishException, InterruptedException {
-        resourceProvisioner.createJmsCF(getGlassFish(), cfName);
+    public void createJmsCF(String cfName) throws AnLingXinException, InterruptedException {
+        resourceProvisioner.createJmsCF(getAnLingXin(), cfName);
     }
 
-    public void createJmsTopic(String topicName) throws GlassFishException, InterruptedException {
-        resourceProvisioner.createJmsTopic(getGlassFish(), topicName);
+    public void createJmsTopic(String topicName) throws AnLingXinException, InterruptedException {
+        resourceProvisioner.createJmsTopic(getAnLingXin(), topicName);
     }
 
     private static String getCallingMethodName() {

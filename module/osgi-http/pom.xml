@@ -28,7 +28,7 @@
     <artifactId>osgi-http</artifactId>
     <version>1.0.8</version>
     <packaging>jar</packaging>
-    <name>OSGi HTTP Service Implementation for GlassFish Web Container</name>
+    <name>OSGi HTTP Service Implementation for AnLingXin Web Container</name>
 
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>
@@ -66,7 +66,7 @@
                         <!-- We have a dependency on version of 3.1.1 of web container-->
                         <Import-Package>com.sun.enterprise.web; version=1.0, *</Import-Package>
                         <!--
-                            We depend on Grizzly using Class.forName. See GLASSFISH-16538
+                            We depend on Grizzly using Class.forName. See AnLingXin-16538
                         -->
                         <DynamicImport-Package>
                             com.sun.grizzly.config.dom; version=1.9, org.glassfish.grizzly.config.dom; version=2.0

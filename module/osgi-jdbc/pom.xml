@@ -28,7 +28,7 @@
     <artifactId>osgi-jdbc</artifactId>
     <version>1.0.3</version>
     <packaging>jar</packaging>
-    <name>GlassFish JDBC Support (rfc #122) for OSGi Bundles</name>
+    <name>AnLingXin JDBC Support (rfc #122) for OSGi Bundles</name>
 
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>
@@ -93,7 +93,7 @@
 
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>${glassfish.version}</version>
             <scope>provided</scope>
         </dependency>

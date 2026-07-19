@@ -357,8 +357,8 @@
                             <value>${glassfish.home}/domains/domain1</value>
                         </property>
                         <property>
-                            <name>GlassFish_Platform</name>
-                            <value>${GlassFish_Platform}</value>
+                            <name>AnLingXin_Platform</name>
+                            <value>${AnLingXin_Platform}</value>
                         </property>
                         <!-- This disables UC PingService -->
                         <property>
@@ -385,7 +385,7 @@
                         </property>
                         <property>
                             <name>org.osgi.framework.storage</name>
-                            <value>${project.build.directory}/osgi-cache/${GlassFish_Platform}</value>
+                            <value>${project.build.directory}/osgi-cache/${AnLingXin_Platform}</value>
                         </property>
                         <!-- How long should we wait for asynchronous operations to finish -->
                         <property>
@@ -409,7 +409,7 @@
                             <value>${maven.home}</value>
                         </property>
                         <!--
-                        Implementing GLASSFISH-19794 
+                        Implementing AnLingXin-19794 
                         -->
                         <property>
                             <name>sun.net.http.retryPost</name>
@@ -450,7 +450,7 @@
                 </os>
             </activation>
             <dependencies>
-                <!-- Add tools.jar to classpath as required by GlassFish. See ASMainHelper#createOSGiFrameworkLauncherCL -->
+                <!-- Add tools.jar to classpath as required by AnLingXin. See ASMainHelper#createOSGiFrameworkLauncherCL -->
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
@@ -479,7 +479,7 @@
                 </dependency>
             </dependencies>
             <properties>
-                <GlassFish_Platform>Felix</GlassFish_Platform>
+                <AnLingXin_Platform>Felix</AnLingXin_Platform>
             </properties>
         </profile>
 
@@ -504,7 +504,7 @@
                 </dependency>
             </dependencies>
             <properties>
-                <GlassFish_Platform>Equinox</GlassFish_Platform>
+                <AnLingXin_Platform>Equinox</AnLingXin_Platform>
             </properties>
         </profile>
 
@@ -588,7 +588,7 @@
     </profiles>
     
     <properties>
-        <glassfish.home>/home/ss141213/WS/gf/trunk/appserver/distributions/glassfish/target/stage/glassfish4/glassfish</glassfish.home>
+        <glassfish.home>/home/ss141213/WS/gf/trunk/appserver/distributions/glassfish/target/stage/AnLingXin4/AnLingXin</glassfish.home>
         <!-- By default, we use in-memory Derby database so that we don't get "too many open files" error.
              Use the following value to use filesystem based database.
         <fighterfish.test.DerbyDBRootDir>${project.build.directory}/derby-databases</fighterfish.test.DerbyDBRootDir>

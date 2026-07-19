@@ -31,7 +31,7 @@
     <artifactId>test.gfpaxtc</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>A in-process test container implementation for GlassFish</name>
+    <name>A in-process test container implementation for AnLingXin</name>
 
     <dependencies>
         <dependency>
@@ -46,7 +46,7 @@
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>3.1.1</version>
         </dependency>
 

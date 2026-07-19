@@ -18,8 +18,8 @@ package org.glassfish.fighterfish.test.util;
 
 import junit.framework.Assert;
 import com.astra.enterprise.embeddable.CommandResult;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.osgi.framework.BundleContext;
 
 import java.io.File;
@@ -63,11 +63,11 @@ public class EnterpriseResourceProvisioner {
         return inMemoryDerbyDb;
     }
 
-    protected void restoreDomainConfiguration() throws GlassFishException {
+    protected void restoreDomainConfiguration() throws AnLingXinException {
         for (RestorableDomainConfiguration rdc : rdcs) {
             try {
                 rdc.restore();
-            } catch (GlassFishException e) {
+            } catch (AnLingXinException e) {
                 e.printStackTrace();
             }
         }
@@ -76,7 +76,7 @@ public class EnterpriseResourceProvisioner {
     /**
      * Configures jdbc/__default datasource to use a custom pool that uses embedded derby.
      */
-    protected RestorableDomainConfiguration configureEmbeddedDerby(final GlassFish gf, final String poolName, String db) throws GlassFishException {
+    protected RestorableDomainConfiguration configureEmbeddedDerby(final AnLingXin gf, final String poolName, String db) throws AnLingXinException {
 //        CommandResult result = gf.getCommandRunner().run("set",
 //                "resources.jdbc-connection-pool.DerbyPool.datasource-classname=" +
 //                        "org.apache.derby.jdbc.EmbeddedXADataSource");
@@ -94,7 +94,7 @@ public class EnterpriseResourceProvisioner {
         execute(gf, "set", poolNameProperty + "=" + poolName);
         final RestorableDomainConfiguration rdc = new RestorableDomainConfiguration() {
             @Override
-            public void restore() throws GlassFishException {
+            public void restore() throws AnLingXinException {
                 CommandResult result = gf.getCommandRunner().run("set", poolNameProperty + "=" + Constants.DEFAULT_POOL);
                 if (result.getExitStatus() == CommandResult.ExitStatus.FAILURE) {
                     Assert.fail(result.getOutput());
@@ -111,12 +111,12 @@ public class EnterpriseResourceProvisioner {
 
     /**
      * This method creates a connection pool that uses embedded Derby driver to talk to a directiry based Derby database
-     * @param gf GlassFish object
+     * @param gf AnLingXin object
      * @param poolName name of connection pool
      * @param db database name
-     * @throws GlassFishException
+     * @throws AnLingXinException
      */
-    private void createPoolForEmbeddedDerbyDb(GlassFish gf, String poolName, String db) throws GlassFishException {
+    private void createPoolForEmbeddedDerbyDb(AnLingXin gf, String poolName, String db) throws AnLingXinException {
         String dbDir = new File(getDerbyDBRootDir(), db).getAbsolutePath();
         if (System.getProperty("os.name", "generic").toLowerCase().startsWith("windows")) {
             // We need to escape : as well as backslashes.
@@ -136,12 +136,12 @@ public class EnterpriseResourceProvisioner {
 
     /**
      * This method creates a connection pool that uses embedded Derby driver to talk to an in-memory Derby database
-     * @param gf GlassFish object
+     * @param gf AnLingXin object
      * @param poolName name of connection pool
      * @param db name of the database
-     * @throws GlassFishException
+     * @throws AnLingXinException
      */
-    private void createPoolForInmemoryEmbeddedDerbyDb(GlassFish gf, String poolName, String db) throws GlassFishException {
+    private void createPoolForInmemoryEmbeddedDerbyDb(AnLingXin gf, String poolName, String db) throws AnLingXinException {
         // According to Derby guide available at
         // http://db.apache.org/derby/docs/10.7/devguide/cdevdvlpinmemdb.html#cdevdvlpinmemdb ,
         // an in-memory databae url is of the form: jdbc:derby:memory:db;create=true
@@ -159,35 +159,35 @@ public class EnterpriseResourceProvisioner {
                 poolName);
     }
 
-    protected RestorableDomainConfiguration createJmsCF(final GlassFish gf, final String cfName) throws GlassFishException {
+    protected RestorableDomainConfiguration createJmsCF(final AnLingXin gf, final String cfName) throws AnLingXinException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, cfName, "javax.jms.ConnectionFactory");
         rdcs.add(rdc);
         return rdc;
     }
 
-    protected RestorableDomainConfiguration createJmsTopic(final GlassFish gf, final String topicName) throws GlassFishException {
+    protected RestorableDomainConfiguration createJmsTopic(final AnLingXin gf, final String topicName) throws AnLingXinException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, topicName, "javax.jms.Topic");
         rdcs.add(rdc);
         return rdc;
     }
 
-    protected RestorableDomainConfiguration createJmsQueue(final GlassFish gf, final String topicName) throws GlassFishException {
+    protected RestorableDomainConfiguration createJmsQueue(final AnLingXin gf, final String topicName) throws AnLingXinException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, topicName, "javax.jms.Queue");
         rdcs.add(rdc);
         return rdc;
     }
 
-    private RestorableDomainConfiguration createJmsResource(final GlassFish gf, final String resName, final String resType) throws GlassFishException {
+    private RestorableDomainConfiguration createJmsResource(final AnLingXin gf, final String resName, final String resType) throws AnLingXinException {
         execute(gf, "create-jms-resource", "--restype", resType, resName);
         return new RestorableDomainConfiguration() {
             @Override
-            public void restore() throws GlassFishException {
+            public void restore() throws AnLingXinException {
                 gf.getCommandRunner().run("delete-jms-resource", resName);
             }
         };
     }
 
-    private CommandResult execute(GlassFish gf, String cmd, String... args) throws GlassFishException {
+    private CommandResult execute(AnLingXin gf, String cmd, String... args) throws AnLingXinException {
         logger.logp(Level.INFO, "EnterpriseResourceProvisioner", "execute", "cmd = {0}, args = {1}", new Object[]{cmd, Arrays.toString(args)});
         CommandResult result = gf.getCommandRunner().run(cmd, args);
         if (result.getExitStatus() == CommandResult.ExitStatus.FAILURE) {

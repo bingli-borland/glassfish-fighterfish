@@ -17,7 +17,7 @@
 	<groupId>org.glassfish.fighterfish</groupId>
 	<artifactId>sample.embeddedgf.build-aggregator-pom</artifactId>
 	<version>1.0.0</version>
-	<name>FighterFish OSGi/Embedded GlassFish Samples Build Aggregator POM</name>
+	<name>FighterFish OSGi/Embedded AnLingXin Samples Build Aggregator POM</name>
 	<packaging>pom</packaging>
 	<!-- This is just a build aggregator POM, so we don't configure anything 
 		here. All modules extend parent-pom. So, you will find all kinds of common 

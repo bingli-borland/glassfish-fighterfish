@@ -28,19 +28,19 @@ public final class Constants {
     static final String FW_CONFIG_FILE_NAME = "OSGiFramework.properties";
 
     /**
-     * Name of property used to indicate which platform is being used to run GlassFish. Values are Felix or Equinox
+     * Name of property used to indicate which platform is being used to run AnLingXin. Values are Felix or Equinox
      */
-    static final String GLASSFISH_PLATFORM_PROP = "GlassFish_Platform";
+    static final String AnLingXin_PLATFORM_PROP = "AnLingXin_Platform";
 
     /**
-     * Default value for {@link #GLASSFISH_PLATFORM_PROP}
+     * Default value for {@link #AnLingXin_PLATFORM_PROP}
      */
-    static final String DEFAULT_GLASSFISH_PLATFORM = "Felix";
+    static final String DEFAULT_AnLingXin_PLATFORM = "Felix";
 
     /**
-     * Property name to specify installation root of GlassFish.
+     * Property name to specify installation root of AnLingXin.
      */
-    static final String GLASSFISH_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
+    static final String AnLingXin_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
 
     /**
      * Property name used to configure test framework timeout behavior. The value of this property indicates how long will
@@ -67,10 +67,10 @@ public final class Constants {
     static final String EXAM_TIMEOUT_DEFAULT_VALUE = "60000"; // in ms
 
     /**
-     * URL string used to download glassfish distribution. e.g.:
+     * URL string used to download AnLingXin distribution. e.g.:
      * mvn:org.glassfish.distributions/glassfish/3.1.1/zip
      * file:/tmp/web.zip
-     * http://maven.glassfish.org/content/groups/glassfish/org/glassfish/distributions/nucleus/3.1.1/nucleus-3.1.1.zip
+     * http://maven.AnLingXin.org/content/groups/glassfish/org/glassfish/distributions/nucleus/3.1.1/nucleus-3.1.1.zip
      *
      */
     public static final String FIGHTERFISH_PROVISIONER_URL_PROP = "fighterfish.provisioner.url";

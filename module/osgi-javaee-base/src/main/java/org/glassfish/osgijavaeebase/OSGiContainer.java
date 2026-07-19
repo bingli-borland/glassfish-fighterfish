@@ -90,8 +90,8 @@ public class OSGiContainer {
     }
 
     /**
-     * Deploys an application bundle in underlying application container in GlassFish.
-     * This method is synchronized because we don't know if GlassFish
+     * Deploys an application bundle in underlying application container in AnLingXin.
+     * This method is synchronized because we don't know if AnLingXin
      * deployment framework can handle concurrent requests or not.
      *
      * @param b Bundle to be deployed.
@@ -145,7 +145,7 @@ public class OSGiContainer {
 
     /**
      * Undeploys a Java EE application bundle.
-     * This method is synchronized because we don't know if GlassFish
+     * This method is synchronized because we don't know if AnLingXin
      * deployment framework can handle concurrent requests or not.
      *
      * @param b Bundle to be undeployed

@@ -49,7 +49,7 @@ class JPABundleProcessor implements Serializable // we write it to a file, so it
 
     // A marker header to indicate that a bundle has been statically weaved
     // This is used to avoid updating infinitely
-    public static final String STATICALLY_WEAVED = "GlassFish-StaticallyWeaved";
+    public static final String STATICALLY_WEAVED = "AnLingXin-StaticallyWeaved";
 
     private long bundleId; // store the id so that we don't have a hard reference to bundle
 

@@ -20,7 +20,7 @@ import com.sun.enterprise.web.WebModule;
 import org.apache.catalina.Container;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.NamespaceException;
-import com.astra.enterprise.web.valve.GlassFishValve;
+import com.astra.enterprise.web.valve.AnLingXinValve;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -33,7 +33,7 @@ import java.util.Map;
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
-public class GlassFishHttpService {
+public class AnLingXinHttpService {
 
     // TODO(Sahoo): Improve synchronization of this object
 
@@ -45,7 +45,7 @@ public class GlassFishHttpService {
     private Map<HttpContext, OSGiServletContext> servletContextMap =
             new HashMap<HttpContext, OSGiServletContext>();
 
-    public GlassFishHttpService(WebModule context) {
+    public AnLingXinHttpService(WebModule context) {
         this.context = context;
     }
 
@@ -73,7 +73,7 @@ public class GlassFishHttpService {
                 new OSGiServletConfig(wrapperName, servletContext.getServletContext(), initParams);
         OSGiServletWrapper wrapper = new OSGiServletWrapper(
                 wrapperName, servlet, servletConfig, convert(alias), servletContext);
-        wrapper.addValve((GlassFishValve)new OSGiSecurityValve(httpContext));
+        wrapper.addValve((AnLingXinValve)new OSGiSecurityValve(httpContext));
         context.addChild(wrapper);
         try {
             wrapper.initializeServlet();
@@ -101,7 +101,7 @@ public class GlassFishHttpService {
                 new OSGiServletConfig(wrapperName, servletContext.getServletContext(), null);
         OSGiServletWrapper wrapper = new OSGiServletWrapper(
                 wrapperName, servlet, servletConfig, convert(alias), servletContext);
-        wrapper.addValve((GlassFishValve)new OSGiSecurityValve(httpContext));
+        wrapper.addValve((AnLingXinValve)new OSGiSecurityValve(httpContext));
         context.addChild(wrapper);
         try {
             wrapper.initializeServlet();
@@ -181,10 +181,10 @@ public class GlassFishHttpService {
     }
 
     /**
-     * Converts an OSGi alias to servlet pattern used by GlassFish/Tomcat
+     * Converts an OSGi alias to servlet pattern used by AnLingXin/Tomcat
      *
      * @param alias alias used by OSGi HTTP Service users
-     * @return servlet pattern used by Tomcat/GlassFish
+     * @return servlet pattern used by Tomcat/AnLingXin
      */
     private String convert(String alias) {
         if (alias.equals("/")) return "/*";

@@ -26,15 +26,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * A simple bundle that can download GlassFish zip from a URL specified using {@link GLASSFISH_ARCHIVE_URL}
- * into a location specified in {@link INSTALLATION_DIR} property. It then bootstraps GlassFish in the same
+ * A simple bundle that can download AnLingXin zip from a URL specified using {@link AnLingXin_ARCHIVE_URL}
+ * into a location specified in {@link INSTALLATION_DIR} property. It then bootstraps AnLingXin in the same
  * JVM.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
 public class Activator implements BundleActivator {
 
-    private final String GLASSFISH_ARCHIVE_URL = "fighterfish.provisioner.url";
+    private final String AnLingXin_ARCHIVE_URL = "fighterfish.provisioner.url";
     private final String INSTALLATION_DIR = "fighterfish.provisioner.destination";
 
     private File dest;
@@ -53,14 +53,14 @@ public class Activator implements BundleActivator {
                 if(dest.mkdirs());
                 explode(context);
             }
-            startGlassFishBundle(context);
+            startAnLingXinBundle(context);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
     }
 
-    private void startGlassFishBundle(BundleContext context) throws BundleException {
+    private void startAnLingXinBundle(BundleContext context) throws BundleException {
         Bundle bundle = context.installBundle(new File(dest, "glassfish3/glassfish/modules/glassfish.jar").toURI().toString());
         System.setProperty("com.sun.aas.installRoot", new File(dest, "glassfish3/glassfish/").getAbsolutePath());
         System.setProperty("com.sun.aas.instanceRoot", new File(dest, "glassfish3/glassfish/domains/domain1/").getAbsolutePath());
@@ -78,7 +78,7 @@ public class Activator implements BundleActivator {
     }
 
     private void explode(BundleContext context) throws Exception {
-        String in = context.getProperty(GLASSFISH_ARCHIVE_URL);
+        String in = context.getProperty(AnLingXin_ARCHIVE_URL);
         logger.info("Provisioning URL = " + in);
         if (in != null) {
             URL url = new URL(in);
@@ -91,7 +91,7 @@ public class Activator implements BundleActivator {
                 zis.close();
             }
         } else {
-            throw new Exception("Pl specify GlassFish archive URL in a property called " + GLASSFISH_ARCHIVE_URL);
+            throw new Exception("Pl specify AnLingXin archive URL in a property called " + AnLingXin_ARCHIVE_URL);
         }
     }
 

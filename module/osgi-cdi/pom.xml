@@ -30,7 +30,7 @@
     <!-- We don't use bundle packaging as that interfers with other custom packaging types because of a maven bug
      which is probably fixed in recent maven versions, but I have no time to test them. So, better be safe.-->
     <packaging>jar</packaging>
-    <name>GlassFish CDI Support for OSGi Bundles</name>
+    <name>AnLingXin CDI Support for OSGi Bundles</name>
     
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

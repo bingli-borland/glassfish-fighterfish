@@ -50,12 +50,12 @@
     <dependencies>
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>${glassfish.version}</version>
         </dependency>
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>glassfish-api</artifactId>
+            <artifactId>alx-api</artifactId>
             <version>${glassfish.version}</version>
         </dependency>        
         <dependency>

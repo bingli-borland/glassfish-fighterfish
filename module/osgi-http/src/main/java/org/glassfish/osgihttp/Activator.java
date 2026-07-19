@@ -28,11 +28,11 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.session.StandardManager;
 import org.apache.catalina.startup.ContextConfig;
 import com.astra.enterprise.api.admin.ServerEnvironment;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import com.astra.enterprise.internal.api.ClassLoaderHierarchy;
 import org.glassfish.osgijavaeebase.Extender;
-import com.astra.enterprise.web.valve.GlassFishValve;
+import com.astra.enterprise.web.valve.AnLingXinValve;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -72,7 +72,7 @@ public class Activator implements BundleActivator {
             Activator.class.getPackage().getName() + ".ContextPath";
 
     private Logger logger = Logger.getLogger(getClass().getPackage().getName());
-    private GlassFish gf;
+    private AnLingXin gf;
     private ServiceRegistration extenderReg;
 
     public void start(BundleContext context) throws Exception {
@@ -91,7 +91,7 @@ public class Activator implements BundleActivator {
      *
      * @param webContainer
      */
-    private void doActualWork(WebContainer webContainer) throws GlassFishException {
+    private void doActualWork(WebContainer webContainer) throws AnLingXinException {
         String defaultVsId = getDefaultVirtualServer();
         final StringTokenizer vsIds = new StringTokenizer(getAllVirtualServers(), ",");
         while (vsIds.hasMoreTokens()) {
@@ -100,11 +100,11 @@ public class Activator implements BundleActivator {
                 WebModule standardContext = createRootWebModule(webContainer, vsId);
                 if (standardContext == null) {
                     logger.logp(Level.WARNING, "Activator", "doActualWork",
-                            "GlassFishHttpService will not be available for for virtual server = {0}, " +
+                            "AnLingXinHttpService will not be available for for virtual server = {0}, " +
                                     "because we are not able to create root web app.", new Object[]{vsId});
                     continue;
                 }
-                GlassFishHttpService httpService = new GlassFishHttpService(standardContext);
+                AnLingXinHttpService httpService = new AnLingXinHttpService(standardContext);
                 Properties props = new Properties();
                 props.put("VirtualServer", vsId);
                 if (vsId.equals(defaultVsId)) {
@@ -152,8 +152,8 @@ public class Activator implements BundleActivator {
         standardContext.setParentClassLoader(getCommonClassLoader(gf));
         standardContext.setWebModuleConfig(wmConfig);
 
-        // See  See GLASSFISH-16764 for more details about this valve
-        standardContext.addValve((GlassFishValve) new OSGiHttpContextValve());
+        // See  See AnLingXin-16764 for more details about this valve
+        standardContext.addValve((AnLingXinValve) new OSGiHttpContextValve());
         // Since there is issue about locating user classes that are part
         // of some OSGi bundle while deserializing, we switch off session
         // persistence.
@@ -164,7 +164,7 @@ public class Activator implements BundleActivator {
         return standardContext;
     }
 
-    private ClassLoader getCommonClassLoader(GlassFish gf) throws GlassFishException {
+    private ClassLoader getCommonClassLoader(AnLingXin gf) throws AnLingXinException {
         ClassLoaderHierarchy clh =
                 gf.getService(ClassLoaderHierarchy.class);
         return clh.getAPIClassLoader();
@@ -215,7 +215,7 @@ public class Activator implements BundleActivator {
     /**
      * @return comma-separated list of all defined virtual servers (including __asadmin)
      */
-    private String getAllVirtualServers() throws GlassFishException {
+    private String getAllVirtualServers() throws AnLingXinException {
         StringBuilder sb = new StringBuilder();
         boolean first = true;
         Domain domain = gf.getService(Domain.class);
@@ -244,7 +244,7 @@ public class Activator implements BundleActivator {
         return sb.toString();
     }
 
-    private String getInstanceName() throws GlassFishException {
+    private String getInstanceName() throws AnLingXinException {
         ServerEnvironment se = gf.getService(ServerEnvironment.class);
         String target = se.getInstanceName();
         return target;
@@ -253,7 +253,7 @@ public class Activator implements BundleActivator {
     /**
      * @return the dafault virtual server
      */
-    private String getDefaultVirtualServer() throws GlassFishException {
+    private String getDefaultVirtualServer() throws AnLingXinException {
         // Grizzly renamed its package name from com.sun.grizzly to org.glassfish.grizzly in Grizzly 2.1. Since Grizzly 2.1 is only
         // integrated into GF3.2 only and we expect our module to work with GF 3.1.1 as well, we are not relying on Grizzly classes statically.
         // So, the code below does what the following line would have done.
@@ -287,26 +287,26 @@ public class Activator implements BundleActivator {
     }
 
     private class OSGiHtttpExtender implements Extender {
-        private GlassFish getGlassFish() {
-            GlassFish gf = (GlassFish) bctx.getService(bctx.getServiceReference(GlassFish.class.getName()));
+        private AnLingXin getAnLingXin() {
+            AnLingXin gf = (AnLingXin) bctx.getService(bctx.getServiceReference(AnLingXin.class.getName()));
             try {
-                assert(gf.getStatus() == GlassFish.Status.STARTED);
-            } catch (GlassFishException e) {
+                assert(gf.getStatus() == AnLingXin.Status.STARTED);
+            } catch (AnLingXinException e) {
                 throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
             }
             return gf;
         }
 
-        private WebContainer getWebContainer() throws GlassFishException {
+        private WebContainer getWebContainer() throws AnLingXinException {
             return gf.getService(WebContainer.class);
         }
 
         @Override
         public void start() {
-            gf = getGlassFish();
+            gf = getAnLingXin();
             try {
                 doActualWork(getWebContainer());
-            } catch (GlassFishException e) {
+            } catch (AnLingXinException e) {
                 throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
             }
         }

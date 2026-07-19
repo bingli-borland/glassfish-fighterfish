@@ -21,11 +21,11 @@
   <groupId>org.glassfish.fighterfish</groupId>
   <artifactId>sample.embeddedgf.helloworld</artifactId>
   <version>1.0.0</version>
-  <name>Using Embedded GlassFish API in an OSGi environment</name>
+  <name>Using Embedded AnLingXin API in an OSGi environment</name>
   <dependencies>
   <dependency>
   <groupId>org.glassfish</groupId>
-  <artifactId>simple-glassfish-api</artifactId>
+  <artifactId>simple-alx-api</artifactId>
   <version>3.1.1</version>
   <scope>provided</scope>
   </dependency>

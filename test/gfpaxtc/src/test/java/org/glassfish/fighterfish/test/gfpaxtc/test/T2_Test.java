@@ -17,8 +17,8 @@
 package org.glassfish.fighterfish.test.gfpaxtc.test;
 
 import com.astra.enterprise.embeddable.CommandResult;
-import com.astra.enterprise.embeddable.GlassFish;
-import com.astra.enterprise.embeddable.GlassFishException;
+import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.AnLingXinException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
@@ -50,25 +50,25 @@ public class T2_Test {
     }
 
     @Inject
-    GlassFish gf;
+    AnLingXin gf;
 
     @Inject
     BundleContext bundleContext;
 
     @Test
-    public void foo() throws GlassFishException {
+    public void foo() throws AnLingXinException {
         System.out.println("T2_Test.foo");
         assertSame(Bundle.ACTIVE, bundleContext.getBundle().getState());
-        System.out.println("Foo: Hello World - I am inside GlassFish");
+        System.out.println("Foo: Hello World - I am inside AnLingXin");
         assertNotNull(gf);
-        assertEquals("GF Started", GlassFish.Status.STARTED, gf.getStatus());
+        assertEquals("GF Started", AnLingXin.Status.STARTED, gf.getStatus());
     }
 
     @Test
-    public void bar() throws GlassFishException {
+    public void bar() throws AnLingXinException {
         System.out.println("T2_Test.bar");
         assertSame(Bundle.ACTIVE, bundleContext.getBundle().getState());
-        System.out.println("Bar: Hello World - I am also inside GlassFish");
+        System.out.println("Bar: Hello World - I am also inside AnLingXin");
         assertNotNull(gf);
         CommandResult result = gf.getCommandRunner().run("list-components");
         System.out.println(result.getOutput());

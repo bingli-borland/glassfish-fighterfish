@@ -24,8 +24,8 @@
     <groupId>org.glassfish.fighterfish</groupId>
     <artifactId>sample.embeddedgf.provisionerwebapp</artifactId>
     <version>1.0.0</version>
-    <name>FighterFish Embedded GlassFish Sample - Web/GlassFish Bootstrapper</name>
-    <description>A web application that embeds GlassFish inside an existing OSGi runtime</description>
+    <name>FighterFish Embedded AnLingXin Sample - Web/AnLingXin Bootstrapper</name>
+    <description>A web application that embeds AnLingXin inside an existing OSGi runtime</description>
     <packaging>war</packaging>
 
     <dependencies>
@@ -37,7 +37,7 @@
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>simple-glassfish-api</artifactId>
+            <artifactId>simple-alx-api</artifactId>
             <version>3.1.1</version>
             <scope>provided</scope>
         </dependency>
