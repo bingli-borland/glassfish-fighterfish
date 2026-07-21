@@ -18,8 +18,8 @@ package org.glassfish.fighterfish.test.util;
 
 import junit.framework.Assert;
 import com.astra.enterprise.embeddable.CommandResult;
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 import org.osgi.framework.BundleContext;
 
 import java.io.File;
@@ -63,11 +63,11 @@ public class EnterpriseResourceProvisioner {
         return inMemoryDerbyDb;
     }
 
-    protected void restoreDomainConfiguration() throws AnLingXinException {
+    protected void restoreDomainConfiguration() throws AstraException {
         for (RestorableDomainConfiguration rdc : rdcs) {
             try {
                 rdc.restore();
-            } catch (AnLingXinException e) {
+            } catch (AstraException e) {
                 e.printStackTrace();
             }
         }
@@ -76,7 +76,7 @@ public class EnterpriseResourceProvisioner {
     /**
      * Configures jdbc/__default datasource to use a custom pool that uses embedded derby.
      */
-    protected RestorableDomainConfiguration configureEmbeddedDerby(final AnLingXin gf, final String poolName, String db) throws AnLingXinException {
+    protected RestorableDomainConfiguration configureEmbeddedDerby(final Astra gf, final String poolName, String db) throws AstraException {
 //        CommandResult result = gf.getCommandRunner().run("set",
 //                "resources.jdbc-connection-pool.DerbyPool.datasource-classname=" +
 //                        "org.apache.derby.jdbc.EmbeddedXADataSource");
@@ -94,7 +94,7 @@ public class EnterpriseResourceProvisioner {
         execute(gf, "set", poolNameProperty + "=" + poolName);
         final RestorableDomainConfiguration rdc = new RestorableDomainConfiguration() {
             @Override
-            public void restore() throws AnLingXinException {
+            public void restore() throws AstraException {
                 CommandResult result = gf.getCommandRunner().run("set", poolNameProperty + "=" + Constants.DEFAULT_POOL);
                 if (result.getExitStatus() == CommandResult.ExitStatus.FAILURE) {
                     Assert.fail(result.getOutput());
@@ -111,12 +111,12 @@ public class EnterpriseResourceProvisioner {
 
     /**
      * This method creates a connection pool that uses embedded Derby driver to talk to a directiry based Derby database
-     * @param gf AnLingXin object
+     * @param gf Astra object
      * @param poolName name of connection pool
      * @param db database name
-     * @throws AnLingXinException
+     * @throws AstraException
      */
-    private void createPoolForEmbeddedDerbyDb(AnLingXin gf, String poolName, String db) throws AnLingXinException {
+    private void createPoolForEmbeddedDerbyDb(Astra gf, String poolName, String db) throws AstraException {
         String dbDir = new File(getDerbyDBRootDir(), db).getAbsolutePath();
         if (System.getProperty("os.name", "generic").toLowerCase().startsWith("windows")) {
             // We need to escape : as well as backslashes.
@@ -136,12 +136,12 @@ public class EnterpriseResourceProvisioner {
 
     /**
      * This method creates a connection pool that uses embedded Derby driver to talk to an in-memory Derby database
-     * @param gf AnLingXin object
+     * @param gf Astra object
      * @param poolName name of connection pool
      * @param db name of the database
-     * @throws AnLingXinException
+     * @throws AstraException
      */
-    private void createPoolForInmemoryEmbeddedDerbyDb(AnLingXin gf, String poolName, String db) throws AnLingXinException {
+    private void createPoolForInmemoryEmbeddedDerbyDb(Astra gf, String poolName, String db) throws AstraException {
         // According to Derby guide available at
         // http://db.apache.org/derby/docs/10.7/devguide/cdevdvlpinmemdb.html#cdevdvlpinmemdb ,
         // an in-memory databae url is of the form: jdbc:derby:memory:db;create=true
@@ -159,35 +159,35 @@ public class EnterpriseResourceProvisioner {
                 poolName);
     }
 
-    protected RestorableDomainConfiguration createJmsCF(final AnLingXin gf, final String cfName) throws AnLingXinException {
+    protected RestorableDomainConfiguration createJmsCF(final Astra gf, final String cfName) throws AstraException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, cfName, "javax.jms.ConnectionFactory");
         rdcs.add(rdc);
         return rdc;
     }
 
-    protected RestorableDomainConfiguration createJmsTopic(final AnLingXin gf, final String topicName) throws AnLingXinException {
+    protected RestorableDomainConfiguration createJmsTopic(final Astra gf, final String topicName) throws AstraException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, topicName, "javax.jms.Topic");
         rdcs.add(rdc);
         return rdc;
     }
 
-    protected RestorableDomainConfiguration createJmsQueue(final AnLingXin gf, final String topicName) throws AnLingXinException {
+    protected RestorableDomainConfiguration createJmsQueue(final Astra gf, final String topicName) throws AstraException {
         final RestorableDomainConfiguration rdc = createJmsResource(gf, topicName, "javax.jms.Queue");
         rdcs.add(rdc);
         return rdc;
     }
 
-    private RestorableDomainConfiguration createJmsResource(final AnLingXin gf, final String resName, final String resType) throws AnLingXinException {
+    private RestorableDomainConfiguration createJmsResource(final Astra gf, final String resName, final String resType) throws AstraException {
         execute(gf, "create-jms-resource", "--restype", resType, resName);
         return new RestorableDomainConfiguration() {
             @Override
-            public void restore() throws AnLingXinException {
+            public void restore() throws AstraException {
                 gf.getCommandRunner().run("delete-jms-resource", resName);
             }
         };
     }
 
-    private CommandResult execute(AnLingXin gf, String cmd, String... args) throws AnLingXinException {
+    private CommandResult execute(Astra gf, String cmd, String... args) throws AstraException {
         logger.logp(Level.INFO, "EnterpriseResourceProvisioner", "execute", "cmd = {0}, args = {1}", new Object[]{cmd, Arrays.toString(args)});
         CommandResult result = gf.getCommandRunner().run(cmd, args);
         if (result.getExitStatus() == CommandResult.ExitStatus.FAILURE) {

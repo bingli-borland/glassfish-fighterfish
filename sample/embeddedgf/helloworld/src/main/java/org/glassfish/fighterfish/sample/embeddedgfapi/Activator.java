@@ -10,15 +10,15 @@
 
 package org.glassfish.fighterfish.sample.embeddedgfapi;
 
-import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.Astra;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 
 public class Activator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
-		ServiceTracker st = new ServiceTracker(context, AnLingXin.class.getName(), null);
-		AnLingXin gf = (AnLingXin) st.waitForService(0);
+		ServiceTracker st = new ServiceTracker(context, Astra.class.getName(), null);
+		Astra gf = (Astra) st.waitForService(0);
 		System.out.println(gf.getStatus());
 		st.close();
 	}

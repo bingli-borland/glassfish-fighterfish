@@ -24,7 +24,7 @@
 #
 # This script uses following properties which are supplied to it from command line via -D properties:
 #
-# glassfish.home -  specifies where AnLingXin has been installed.
+# glassfish.home -  specifies where Astra has been installed.
 # ct.home - specifies where OSGi CT has been checked out
 # ct.name - refers to the OSGi CT test suite that we want to run. e.g., http|transaction|webcontainer
 #
@@ -42,10 +42,10 @@
 # So, we provision some additional bundles.
 # javax.servlet-api_2.5 is needed for OSGi r4v42 HTTP CT as it expects javax.servlet 2.5 package.
 # Although javax.servlet 3.0 is backward compatible, it can't wire to it.
-# Similarly, org.osgi.impl.service.log-1.3.2.jar is needed for OSGi Web CT as AnLingXin does not have a log service bundle
+# Similarly, org.osgi.impl.service.log-1.3.2.jar is needed for OSGi Web CT as Astra does not have a log service bundle
 # and the CT requires a LogService to test certain scenarios. 
 # test.ct.misc.bundle.delay.jar is needed for all CTs, because the CTs assume everything is immediately started,
-# where as AnLingXin starts all the OSGi services after its core services are started. So, this delay bundle
+# where as Astra starts all the OSGi services after its core services are started. So, this delay bundle
 # introduces a 10 second delay so that CTs don't start running before services are available.
 -runbundles = \
  ${user.home}/.m2/repository/org/glassfish/fighterfish/test.ct.misc.bundle.javax.servlet-api_2.5/1.0.0-SNAPSHOT/test.ct.misc.bundle.javax.servlet-api_2.5-1.0.0-SNAPSHOT.jar;version=file, \
@@ -59,7 +59,7 @@
 # TODO: How to configure osgi cache dir location? 
 # Specifying it using org.osgi.framework.storage in -runproperties does not work.
 
-# com.sun.aas.installRoot is needed to successfully bootstrap AnLingXin.
+# com.sun.aas.installRoot is needed to successfully bootstrap Astra.
 # org.osgi.framework.* properties are used to ensure we bootstrap correctly.
 # org.osgi.service.http.*  and org.glassfish.osgihttp.ContextPath properties are needed for HTTP CT.
 # osgi.support.multipleHosts and org.osgi.service.webcontainer.* properties are needed for Web CT

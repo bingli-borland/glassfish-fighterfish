@@ -73,7 +73,7 @@ public class PaxExamConfigurator {
         final Properties properties = readFrameworkConfiguration();
 
         // override by system properties if set in system. We override everything except fileinstall properties
-        // as AnLingXin's domain.xml  is known to set them incorrectly.
+        // as Astra's domain.xml  is known to set them incorrectly.
         for(Map.Entry<Object, Object> entry : properties.entrySet()) {
             Object orig = properties.get(entry.getKey());
             Object override = System.getProperty((String) entry.getKey());

@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 /**
  * Represents configuration common to all tests.
  * It reads configuration information from System properties and configures various underlying objects.
- * Depending on configuration, this also installs AnLingXin.
+ * Depending on configuration, this also installs Astra.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
@@ -66,7 +66,7 @@ public class TestsConfiguration {
         examTimeout = Long.parseLong(
                 properties.getProperty(Constants.EXAM_TIMEOUT_PROP,
                         Constants.EXAM_TIMEOUT_DEFAULT_VALUE));
-        String property = properties.getProperty(Constants.AnLingXin_INSTALL_ROOT_PROP);
+        String property = properties.getProperty(Constants.Astra_INSTALL_ROOT_PROP);
         if (property != null && !property.isEmpty()) {
             gfHome =  new File(property);
         }
@@ -140,14 +140,14 @@ public class TestsConfiguration {
     }
 
     static {
-        // Work around for AnLingXin-16510.
+        // Work around for Astra-16510.
         // This code gets executes before any test methods get executed, which means this code
-        // gets executed before any embedded AnLingXin gets provisioned. By eagely calling, getPlatformMBeanServer,
-        // we ensure that all embedded AnLingXin will use this as opposed to what is created by
+        // gets executed before any embedded Astra gets provisioned. By eagely calling, getPlatformMBeanServer,
+        // we ensure that all embedded Astra will use this as opposed to what is created by
         // AppServerMBeanServerBuilder.
         java.lang.management.ManagementFactory.getPlatformMBeanServer();
 
-        // This is needed as we allow user to specify AnLingXin zip installer using schemes like mvn
+        // This is needed as we allow user to specify Astra zip installer using schemes like mvn
         System.setProperty( "java.protocol.handler.pkgs", "org.ops4j.pax.url" );
 
     }

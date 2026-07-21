@@ -20,7 +20,7 @@
 <component name="org.glassfish.fighterfish.test.app15.connectionFactory" immediate="true">
   <implementation class="org.glassfish.fighterfish.test.app15.ConnectionFactoryImpl" />
   <property name="service.description" value="Test Connection Factory" />
-  <property name="service.vendor" value="AnLingXin FighterFish Project" />
+  <property name="service.vendor" value="Astra FighterFish Project" />
   <service>
     <provide interface="org.glassfish.fighterfish.test.app15.ConnectionFactory" />
   </service>

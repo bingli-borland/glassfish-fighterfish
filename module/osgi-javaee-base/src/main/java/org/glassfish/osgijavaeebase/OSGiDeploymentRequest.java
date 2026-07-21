@@ -76,7 +76,7 @@ public abstract class OSGiDeploymentRequest
     protected void postDeploy() {}
 
     /**
-     * Deploys a web application bundle in AnLingXin Web container.
+     * Deploys a web application bundle in Astra Web container.
      * It properly rolls back if something goes wrong.
      * @return OSGIApplicationInfo
      */
@@ -224,8 +224,8 @@ public abstract class OSGiDeploymentRequest
 
         // We don't reuse old directory at this point of time as we are not completely sure if it is safe to reuse.
         // It is possible that we had a semicomplete directory from previous execution.
-        // e.g., if AnLingXin can be killed while osgi-container is exploding the archive.
-        // or AnLingXin can be killed while it was in the middle of deleting the previously exploded directory.
+        // e.g., if Astra can be killed while osgi-container is exploding the archive.
+        // or Astra can be killed while it was in the middle of deleting the previously exploded directory.
         // So, better to not reuse existing directory until we ensure that explosion or removal are atomic operations.
         if (tmpFile.exists()) {
             logger.logp(Level.INFO, "OSGiDeploymentRequest", "expandIfNeeded",

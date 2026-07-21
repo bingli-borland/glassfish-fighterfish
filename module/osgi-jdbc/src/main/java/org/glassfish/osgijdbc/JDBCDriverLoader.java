@@ -96,7 +96,7 @@ public class JDBCDriverLoader {
     }
 
     /**
-     * Get a set of common database vendor names supported in AnLingXin.
+     * Get a set of common database vendor names supported in Astra.
      * @return database vendor names set.
      */
     private Set<String> getDatabaseVendorNames() {

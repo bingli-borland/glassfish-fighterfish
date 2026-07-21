@@ -32,7 +32,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * A service to export resources in AnLingXin to OSGi's service-registry.<br>
+ * A service to export resources in Astra to OSGi's service-registry.<br>
  * OSGi applications can use <i>ServiceReference</i> to get access to these resources.
  * OSGi applications can do lookup of appropriate type of<br>
  * <i>ServiceReference</i> with the filter <i>"jndi-name"</i> <br><br>

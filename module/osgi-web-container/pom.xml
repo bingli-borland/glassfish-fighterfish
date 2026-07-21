@@ -28,7 +28,7 @@
     <artifactId>osgi-web-container</artifactId>
     <version>2.0.2</version>
     <packaging>jar</packaging>
-    <name>AnLingXin Web Container (rfc #66) for OSGi Enabled Web Applications</name>
+    <name>Astra Web Container (rfc #66) for OSGi Enabled Web Applications</name>
     
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

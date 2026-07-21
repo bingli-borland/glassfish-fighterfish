@@ -34,14 +34,14 @@ import java.util.Set;
  * This is what a bundle gets when they look up the servuce in OSGi service
  * registry. This is needed so that we can unregister all the servlets
  * registered by a bundle when that bundle goes down without unregistering
- * the servlet or resource end points. This delegates to {@link AnLingXinHttpService}
+ * the servlet or resource end points. This delegates to {@link AstraHttpService}
  * for implementing the actual service.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
 public class HttpServiceWrapper implements HttpService {
 
-    private AnLingXinHttpService delegate;
+    private AstraHttpService delegate;
     /**
      * The bundle which has looked up this service instance from registry.
      */
@@ -52,7 +52,7 @@ public class HttpServiceWrapper implements HttpService {
      */
     private Set<String> aliases = new HashSet<String>();
 
-    public HttpServiceWrapper(AnLingXinHttpService delegate,
+    public HttpServiceWrapper(AstraHttpService delegate,
                               Bundle registeringBundle) {
         this.delegate = delegate;
         this.registeringBundle = registeringBundle;
@@ -112,9 +112,9 @@ public class HttpServiceWrapper implements HttpService {
      * bundle registering the servlet.
      */
     public static class HttpServiceFactory implements ServiceFactory {
-        private AnLingXinHttpService delegate;
+        private AstraHttpService delegate;
 
-        public HttpServiceFactory(AnLingXinHttpService delegate) {
+        public HttpServiceFactory(AstraHttpService delegate) {
             this.delegate = delegate;
         }
 

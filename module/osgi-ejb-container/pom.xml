@@ -28,7 +28,7 @@
     <artifactId>osgi-ejb-container</artifactId>
     <version>1.0.5</version>
     <packaging>jar</packaging>
-    <name>AnLingXin EJB Container for OSGi Enabled EJB Applications</name>
+    <name>Astra EJB Container for OSGi Enabled EJB Applications</name>
 
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

@@ -17,9 +17,9 @@
 package org.glassfish.fighterfish.test.gfpaxtc;
 
 import com.astra.enterprise.embeddable.BootstrapProperties;
-import com.astra.enterprise.embeddable.AnLingXinException;
-import com.astra.enterprise.embeddable.AnLingXinProperties;
-import com.astra.enterprise.embeddable.AnLingXinRuntime;
+import com.astra.enterprise.embeddable.AstraException;
+import com.astra.enterprise.embeddable.AstraProperties;
+import com.astra.enterprise.embeddable.AstraRuntime;
 import org.ops4j.pax.exam.ExamSystem;
 import org.ops4j.pax.exam.TestContainer;
 import org.ops4j.pax.exam.TestContainerException;
@@ -40,17 +40,17 @@ import java.util.logging.Logger;
 /**
  * @author Sanjeeb.Sahoo@Sun.COM
  */
-public class AnLingXinTestContainerFactory implements TestContainerFactory {
+public class AstraTestContainerFactory implements TestContainerFactory {
     static {
-        // Work around for AnLingXin-16510.
+        // Work around for Astra-16510.
         // This code gets executes before any test methods get executed, which means this code
-        // gets executed before any embedded AnLingXin gets provisioned. By eagely calling, getPlatformMBeanServer,
-        // we ensure that all embedded AnLingXin will use this as opposed to what is created by
+        // gets executed before any embedded Astra gets provisioned. By eagely calling, getPlatformMBeanServer,
+        // we ensure that all embedded Astra will use this as opposed to what is created by
         // AppServerMBeanServerBuilder.
         java.lang.management.ManagementFactory.getPlatformMBeanServer();
     }
 
-    public AnLingXinTestContainerFactory() throws MalformedURLException, AnLingXinException {
+    public AstraTestContainerFactory() throws MalformedURLException, AstraException {
     }
 
     @Override
@@ -59,7 +59,7 @@ public class AnLingXinTestContainerFactory implements TestContainerFactory {
     }
 
     private TestContainer createTestContainer(ExamSystem system) {
-        return new AnLingXinTestContainer(system);
+        return new AstraTestContainer(system);
     }
 
 }

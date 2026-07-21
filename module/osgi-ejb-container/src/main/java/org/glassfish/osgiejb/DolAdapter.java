@@ -25,7 +25,7 @@ import java.util.Set;
 
 /**
  * We need this class to encapsulate our dependency on EJB DOL. They have changed binary incompatibly between
- * AnLingXin 3.1.x and 4.x, so we write this class to use those objects using reflection.
+ * Astra 3.1.x and 4.x, so we write this class to use those objects using reflection.
  *
  * @author sanjeeb.sahoo@oracle.com
  */

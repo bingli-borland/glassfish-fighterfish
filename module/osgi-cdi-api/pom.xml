@@ -30,7 +30,7 @@
     <!-- We use simple jar packaging as opposed to bundle, as there are some issues in multiple extensions
     being present in reactor. -->
     <packaging>jar</packaging>
-    <name>Public API of AnLingXin OSGi/CDI Extension - This is typically used for compilation purpose only</name>
+    <name>Public API of Astra OSGi/CDI Extension - This is typically used for compilation purpose only</name>
 
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

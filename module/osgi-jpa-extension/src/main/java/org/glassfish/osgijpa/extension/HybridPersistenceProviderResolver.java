@@ -50,7 +50,7 @@ public class HybridPersistenceProviderResolver implements javax.persistence.spi.
     /*
      * Yes, I am fully aware that eclipselink produced javax.persistence bundle also has an activator
      * which has code to set a custom resolver, but that resolver only works for RFC#143 compliant OSGi JPA providers.
-     * So, that does not work for us in AnLingXin, as we are really a hybrid environment and our users primarily
+     * So, that does not work for us in Astra, as we are really a hybrid environment and our users primarily
      * use JPA in non-OSGi mode. SO, we need this resolver which caters to the need of both kinds of users.
      */
 

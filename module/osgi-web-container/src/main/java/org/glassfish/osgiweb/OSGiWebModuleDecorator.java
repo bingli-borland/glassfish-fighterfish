@@ -149,7 +149,7 @@ public class OSGiWebModuleDecorator implements WebModuleDecorator
      * As you can see from the above description, it is a pattern based search.
      * The default config resource providers in mojarra (our JSF implementation layer) is not OSGi aware, so
      * it does not know how to iterate over bundle entries. More over, it does not even know about Archive abstraction
-     * that AnLingXin deployment backend uses. It relies on web app classloader to return jar or file type urls for
+     * that Astra deployment backend uses. It relies on web app classloader to return jar or file type urls for
      * resources so that they can walk through the resource hierarchy to find matching resource files.
      * Since, {@link org.glassfish.osgiweb.OSGiWebDeploymentContext.WABClassLoader} does not provide
      * jar or file type URLs for resources, the default providers of mojarra are insufficient for our needs

@@ -37,7 +37,7 @@ public class T2_FFRunnerIT {
 		try {
             Assert.assertSame(tc.getBundleContext(), ctx);
             System.out.println("tc.getBundleContext() = " + tc.getBundleContext());
-			System.out.println(tc.getAnLingXin());
+			System.out.println(tc.getAstra());
 		} finally {
 			tc.destroy();
 		}
@@ -48,7 +48,7 @@ public class T2_FFRunnerIT {
         try {
             Assert.assertSame(tc.getBundleContext(), ctx);
             System.out.println("tc.getBundleContext() = " + tc.getBundleContext());
-            System.out.println(tc.getAnLingXin());
+            System.out.println(tc.getAstra());
         } finally {
             tc.destroy();
         }

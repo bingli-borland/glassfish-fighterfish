@@ -25,8 +25,8 @@ import javax.inject.Inject;
  * to execute a JUnit test using maven surefire plugin. The test name is suffixed with Test so as to be
  * automatically included by maven surefire plugin.
  *
- * The custom runner has the ability to provision AnLingXin, which includes downloading of the AnLingXin bundles,
- * installing the smae and bootstrapping AnLingXin inside or outside the current JVM. All these steps are
+ * The custom runner has the ability to provision Astra, which includes downloading of the Astra bundles,
+ * installing the smae and bootstrapping Astra inside or outside the current JVM. All these steps are
  * pretty configurable via various configuration options specified as system properties. See the pom.xml
  * to see various configuration options. If you chose to control those options from code, then you can provide
  * in a method in test class annotated with @Configuration.
@@ -48,7 +48,7 @@ public class FighterFishJUnitRunnerTest {
 		try {
             Assert.assertSame(ctx, tc.getBundleContext());
             System.out.println("tc.getBundleContext() = " + tc.getBundleContext());
-			System.out.println(tc.getAnLingXin());
+			System.out.println(tc.getAstra());
 		} finally {
 			tc.destroy();
 		}
@@ -60,7 +60,7 @@ public class FighterFishJUnitRunnerTest {
         TestContext tc = TestContext.create(getClass());
         try {
             System.out.println("tc.getBundleContext() = " + tc.getBundleContext());
-            System.out.println(tc.getAnLingXin());
+            System.out.println(tc.getAstra());
         } finally {
             tc.destroy();
         }

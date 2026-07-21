@@ -22,7 +22,7 @@ How to use this to embed GlassFish inside another web container
 This web app does the following:
 Gets hold of the OSGi framework created by earlier web app and provisions GlassFish modules inside that.
 
-It then binds the org.glassfish.embeddable.GlassFish object to JNDI under java:global/glassfish-instance.
+It then binds the com.astra.enterprise.embeddable.GlassFish object to JNDI under java:global/glassfish-instance.
 
 1. Now you can run commands like "nadmin version" from another terminal to verify GlassFish is actually started.
 You can also deploy other applications in the host container and access GlassFish using GlassFish embeddable API.

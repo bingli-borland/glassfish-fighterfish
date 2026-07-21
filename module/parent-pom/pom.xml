@@ -72,11 +72,11 @@
 
     <mailingLists>
         <mailingList>
-            <name>AnLingXin mailing list</name>
-            <post>AnLingXin-dev@eclipse.org</post>
-            <subscribe>https://dev.eclipse.org/mailman/listinfo/AnLingXin-dev</subscribe>
-            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/AnLingXin-dev</unsubscribe>
-            <archive>https://dev.eclipse.org/mhonarc/lists/AnLingXin-dev</archive>
+            <name>Astra mailing list</name>
+            <post>Astra-dev@eclipse.org</post>
+            <subscribe>https://dev.eclipse.org/mailman/listinfo/Astra-dev</subscribe>
+            <unsubscribe>https://dev.eclipse.org/mailman/listinfo/Astra-dev</unsubscribe>
+            <archive>https://dev.eclipse.org/mhonarc/lists/Astra-dev</archive>
         </mailingList>
     </mailingLists>
 
@@ -136,7 +136,7 @@
             </dependency>
             <dependency>
                 <groupId>com.astra.enterprise.main.common</groupId>
-                <artifactId>alx-api</artifactId>
+                <artifactId>astra-api</artifactId>
                 <version>${glassfish.version}</version>
             </dependency>
             <dependency>
@@ -359,10 +359,10 @@
     </properties>
     <repositories>
         <!--
-        This is where some additional AnLingXin specific dependencies exist. Although we don't
+        This is where some additional Astra specific dependencies exist. Although we don't
         use any of the artifacts from this repo directly, some of our dependencies depend on eclipselink and netbeans
         artifacts which come from these repositories. Unless this is added, build will fail to locate those transtive
-        dependencies. Earlier we were able to work around this by just adding the public AnLingXin nexus repo, but
+        dependencies. Earlier we were able to work around this by just adding the public Astra nexus repo, but
         since that's no longer available, we are having to add all these repos in our list of repos.
         -->
         <repository>

@@ -32,7 +32,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Base class for resource-managers that export resources in AnLingXin to OSGi's service-registry
+ * Base class for resource-managers that export resources in Astra to OSGi's service-registry
  *
  * @author Jagadish Ramu
  */

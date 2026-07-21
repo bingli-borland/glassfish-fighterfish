@@ -30,7 +30,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 /**
- * Resource-Manager to export jms-destinations (JMS-RA admin-object-resources) in AnLingXin to OSGi's service-registry
+ * Resource-Manager to export jms-destinations (JMS-RA admin-object-resources) in Astra to OSGi's service-registry
  *
  * @author Jagadish Ramu
  */

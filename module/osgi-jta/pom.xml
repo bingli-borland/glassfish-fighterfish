@@ -28,7 +28,7 @@
     <artifactId>osgi-jta</artifactId>
     <packaging>jar</packaging>
     <version>1.0.3</version>
-    <name>OSGi/JTA implementation in AnLingXin</name>
+    <name>OSGi/JTA implementation in Astra</name>
     
     <scm>
         <connection>scm:git:https://github.com/eclipse-ee4j/glassfish-fighterfish.git</connection>

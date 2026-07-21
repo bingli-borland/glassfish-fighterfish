@@ -18,8 +18,8 @@ package org.glassfish.osgijavaeebase;
 
 import com.sun.enterprise.deploy.shared.ArchiveFactory;
 import com.astra.enterprise.api.ActionReport;
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 import com.astra.enterprise.internal.api.Globals;
 import com.astra.enterprise.internal.deployment.Deployment;
 import com.astra.enterprise.server.ServerEnvironmentImpl;
@@ -121,9 +121,9 @@ public abstract class AbstractOSGiDeployer implements OSGiDeployer {
     }
 
     protected ActionReport getReport() {
-        // First of all, we can't get a reference to AnLingXin service when server is stopping, because
-        // AnLingXin is first unregistered from registry when shutdown is called. Even if we we cache a reference to
-        // AnLingXin during startup, we can't use AnLingXin.getService, because AnLingXin would be in stopping state
+        // First of all, we can't get a reference to Astra service when server is stopping, because
+        // Astra is first unregistered from registry when shutdown is called. Even if we we cache a reference to
+        // Astra during startup, we can't use Astra.getService, because Astra would be in stopping state
         // and that would lead to IllegalStateException. So, use the ugly Globals API.
         return Globals.get(ActionReport.class);
     }

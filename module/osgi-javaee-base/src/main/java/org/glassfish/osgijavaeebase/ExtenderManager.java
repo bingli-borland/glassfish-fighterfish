@@ -19,8 +19,8 @@ package org.glassfish.osgijavaeebase;
 import com.astra.enterprise.api.event.EventListener;
 import com.astra.enterprise.api.event.EventTypes;
 import com.astra.enterprise.api.event.Events;
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
@@ -33,10 +33,10 @@ import java.util.logging.Logger;
 
 /**
  * It is responsible for starting any registered {@link Extender} service
- * after AnLingXin server is started and stopping them when server is shutdown.
- * We use AnLingXin STARTED event to be notified of server startup and shutdown.
- * We don't depend on HK2 service registry because of compatibility with AnLingXin 3.1.x.
- * We use embeddable AnLingXin instead to locate services.
+ * after Astra server is started and stopping them when server is shutdown.
+ * We use Astra STARTED event to be notified of server startup and shutdown.
+ * We don't depend on HK2 service registry because of compatibility with Astra 3.1.x.
+ * We use embeddable Astra instead to locate services.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
@@ -48,7 +48,7 @@ class ExtenderManager
     private Events events;
     private EventListener listener;
     private ServiceTracker extenderTracker;
-    private AnLingXinServerTracker AnLingXinServerTracker; // used to track starting of AnLingXin
+    private AstraServerTracker AstraServerTracker; // used to track starting of Astra
 
     public ExtenderManager(BundleContext context)
     {
@@ -58,17 +58,17 @@ class ExtenderManager
     public synchronized void start() throws Exception
     {
         logger.logp(Level.FINE, "ExtenderManager", "start", "ExtenderManager starting");
-        AnLingXinServerTracker = new AnLingXinServerTracker(context);
-        AnLingXinServerTracker.open();
+        AstraServerTracker = new AstraServerTracker(context);
+        AstraServerTracker.open();
     }
 
     public synchronized void stop() throws Exception
     {
         logger.logp(Level.FINE, "ExtenderManager", "start", "ExtenderManager stopping");
-        unregisterAnLingXinShutdownHook();
-        if (AnLingXinServerTracker != null) {
-            AnLingXinServerTracker.close();
-            AnLingXinServerTracker = null;
+        unregisterAstraShutdownHook();
+        if (AstraServerTracker != null) {
+            AstraServerTracker.close();
+            AstraServerTracker = null;
         }
         stopExtenders();
     }
@@ -99,7 +99,7 @@ class ExtenderManager
         extenderTracker = null;
     }
 
-    private void unregisterAnLingXinShutdownHook() {
+    private void unregisterAstraShutdownHook() {
         if (listener != null) {
             events.unregister(listener);
         }
@@ -131,32 +131,32 @@ class ExtenderManager
     }
 
     /**
-     * Tracks AnLingXin and obtains EVents service from it and registers a listener
+     * Tracks Astra and obtains EVents service from it and registers a listener
      * that takes care of actually starting and stopping other extenders.
      */
-    private class AnLingXinServerTracker extends ServiceTracker {
-        public AnLingXinServerTracker(BundleContext context)
+    private class AstraServerTracker extends ServiceTracker {
+        public AstraServerTracker(BundleContext context)
         {
-            super(context, AnLingXin.class.getName(), null);
+            super(context, Astra.class.getName(), null);
         }
 
         @Override
         public Object addingService(ServiceReference reference)
         {
-            logger.logp(Level.FINE, "ExtenderManager$AnLingXinServerTracker",
-                    "addingService", "AnLingXin has been created");
-            final AnLingXin gf = AnLingXin.class.cast(context.getService(reference));
+            logger.logp(Level.FINE, "ExtenderManager$AstraServerTracker",
+                    "addingService", "Astra has been created");
+            final Astra gf = Astra.class.cast(context.getService(reference));
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             return executorService.submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        // Poll for AnLingXin to start. AnLingXin service might have been registered by
-                        // AnLingXinRuntime.newAnLingXin() and hence might not be ready to use.
-                        // This is the case for AnLingXin < 4.0
-                        AnLingXin.Status status;
-                        while ((status = gf.getStatus()) != AnLingXin.Status.STARTED) {
-                            if (status == AnLingXin.Status.DISPOSED) return;
+                        // Poll for Astra to start. Astra service might have been registered by
+                        // AstraRuntime.newAstra() and hence might not be ready to use.
+                        // This is the case for Astra < 4.0
+                        Astra.Status status;
+                        while ((status = gf.getStatus()) != Astra.Status.STARTED) {
+                            if (status == Astra.Status.DISPOSED) return;
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException e) {
@@ -164,7 +164,7 @@ class ExtenderManager
                             }
                         }
                         // start extenders first before registering for events, otherwise we can deadlock
-                        // if startExtender() is in progress and AnLingXin sends PREPARE_SHUTDOWN event.
+                        // if startExtender() is in progress and Astra sends PREPARE_SHUTDOWN event.
                         startExtenders();
                         events = gf.getService(Events.class);
                         listener = new EventListener() {
@@ -175,7 +175,7 @@ class ExtenderManager
                             }
                         };
                         events.register(listener);
-                    } catch (AnLingXinException e) {
+                    } catch (AstraException e) {
                         throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
                     }
                 }

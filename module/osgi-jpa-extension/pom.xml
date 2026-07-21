@@ -78,7 +78,7 @@
         </dependency>
         <dependency>
             <groupId>com.astra.enterprise.main.common</groupId>
-            <artifactId>alx-api</artifactId>
+            <artifactId>astra-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

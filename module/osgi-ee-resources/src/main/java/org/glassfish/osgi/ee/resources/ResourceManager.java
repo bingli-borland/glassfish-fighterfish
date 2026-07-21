@@ -22,7 +22,7 @@ import org.osgi.framework.BundleContext;
 
 
 /**
- * Resource-Manager to export resources defined in AnLingXin to OSGi's service-registry
+ * Resource-Manager to export resources defined in Astra to OSGi's service-registry
  *
  * @author Jagadish Ramu
  */

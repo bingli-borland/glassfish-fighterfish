@@ -16,8 +16,8 @@
 
 package org.glassfish.osgi.ee.resources;
 
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 
 /**
  * Adapter for old Habitat's getComponent method
@@ -26,16 +26,16 @@ import com.astra.enterprise.embeddable.AnLingXinException;
  * @author sanjeeb.sahoo@oracle.com
  */
 /*package*/ class Habitat {
-    private final AnLingXin gf;
+    private final Astra gf;
 
-    Habitat(AnLingXin gf) {
+    Habitat(Astra gf) {
         this.gf = gf;
     }
 
     public <T> T getComponent(Class<T> type) {
         try {
             return gf.getService(type);
-        } catch (AnLingXinException e) {
+        } catch (AstraException e) {
             throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
         }
     }

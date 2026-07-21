@@ -42,20 +42,20 @@ import java.util.logging.Logger;
 /**
  * @author Sanjeeb.Sahoo@Sun.COM
  */
-public class AnLingXinTestContainer implements TestContainer {
+public class AstraTestContainer implements TestContainer {
     private ConfigurationHelper configurationHelper;
     private BootstrapProperties bsProperties;
-    private AnLingXinProperties gfProps;
+    private AstraProperties gfProps;
 
     private final ExamSystem system;
     private Framework framework;
-    private AnLingXinRuntime gfr;
-    private AnLingXin gf;
+    private AstraRuntime gfr;
+    private Astra gf;
     private Stack<Long> m_installed = new Stack<Long>();
     private Logger logger = Logger.getLogger(getClass().getPackage().getName());
     final private static String PROBE_SIGNATURE_KEY = "Probe-Signature";
 
-    public AnLingXinTestContainer(ExamSystem system) {
+    public AstraTestContainer(ExamSystem system) {
         System.setProperty("java.protocol.handler.pkgs", "org.ops4j.pax.url");
         this.system = system;
         configurationHelper = new ConfigurationHelper(system);
@@ -67,9 +67,9 @@ public class AnLingXinTestContainer implements TestContainer {
             // Let's get hold of the framework
             PackageAdmin pa = gf.getService(PackageAdmin.class);
             framework = (Framework) pa.getBundle(pa.getClass());
-            logger.logp(Level.INFO, "AnLingXinTestContainer", "start", "framework = {0}", new Object[]{framework});
+            logger.logp(Level.INFO, "AstraTestContainer", "start", "framework = {0}", new Object[]{framework});
             installAndStartBundles();
-        } catch (AnLingXinException e) {
+        } catch (AstraException e) {
             throw new RuntimeException(e);
         } catch (BundleException e) {
             throw new RuntimeException(e);
@@ -90,7 +90,7 @@ public class AnLingXinTestContainer implements TestContainer {
             addBundle(b);
             setBundleStartLevel(b.getBundleId(), org.ops4j.pax.exam.Constants.START_LEVEL_TEST_BUNDLE);
             b.start();
-            logger.logp(Level.INFO, "AnLingXinTestContainer", "install", "Installed pax exam probe: {0}", new Object[]{b});
+            logger.logp(Level.INFO, "AstraTestContainer", "install", "Installed pax exam probe: {0}", new Object[]{b});
             return b.getBundleId();
         } catch (BundleException e) {
             throw new RuntimeException(e);
@@ -118,7 +118,7 @@ public class AnLingXinTestContainer implements TestContainer {
                 try {
                     uninstallAll();
                     shutdownGf();
-                } catch (AnLingXinException e) {
+                } catch (AstraException e) {
                     e.printStackTrace();
                     return false;
                 } finally {
@@ -132,9 +132,9 @@ public class AnLingXinTestContainer implements TestContainer {
             executorService.awaitTermination(
                     system.getTimeout().getUpperValue() + 1000, TimeUnit.MILLISECONDS);
             if (result.get()!=null && result.get()) {
-                logger.logp(Level.INFO, "AnLingXinTestContainer", "stop", "Test container stopped successfully");
+                logger.logp(Level.INFO, "AstraTestContainer", "stop", "Test container stopped successfully");
             } else {
-                logger.logp(Level.INFO, "AnLingXinTestContainer", "stop", "Test container did not stop successfully");
+                logger.logp(Level.INFO, "AstraTestContainer", "stop", "Test container did not stop successfully");
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -145,23 +145,23 @@ public class AnLingXinTestContainer implements TestContainer {
         return this;
     }
 
-    private void bootstrapGf() throws AnLingXinException, MalformedURLException {
+    private void bootstrapGf() throws AstraException, MalformedURLException {
         bootstrapGfr();
-        gfProps = new AnLingXinProperties(bsProperties.getProperties());
-        gf = gfr.newAnLingXin(gfProps);
+        gfProps = new AstraProperties(bsProperties.getProperties());
+        gf = gfr.newAstra(gfProps);
         gf.start();
     }
 
-    private void bootstrapGfr() throws MalformedURLException, AnLingXinException {
+    private void bootstrapGfr() throws MalformedURLException, AstraException {
         ClassLoader launcherCL = createGFLauncherCL();
         bsProperties = getBootstrapProperties();
-        logger.logp(Level.FINE, "GFTC", "bootstrapGfr", "AnLingXinRuntime BootstrapProperties = {0}", new Object[]{bsProperties.getProperties()});
-        gfr = AnLingXinRuntime.bootstrap(bsProperties, launcherCL);
+        logger.logp(Level.FINE, "GFTC", "bootstrapGfr", "AstraRuntime BootstrapProperties = {0}", new Object[]{bsProperties.getProperties()});
+        gfr = AstraRuntime.bootstrap(bsProperties, launcherCL);
         logger.logp(Level.INFO, "GFTC", "bootstrapGfr",
                 "gfr = {0} and is loaded by {1}", new Object[]{gfr, gfr.getClass().getClassLoader()});
     }
 
-    private void shutdownGf() throws AnLingXinException {
+    private void shutdownGf() throws AstraException {
         gf.dispose(); // dispose will remove it from service registry as well
         gf = null;
         gfr.shutdown();
@@ -211,9 +211,9 @@ public class AnLingXinTestContainer implements TestContainer {
         final ProvisionOption[] options = system.getOptions(ProvisionOption.class);
         for (ProvisionOption<?> option : options) {
             final String url = option.getURL();
-            logger.logp(Level.INFO, "AnLingXinTestContainer", "installAndStartBundles", "Installing bundle from {0}", new Object[]{url});
+            logger.logp(Level.INFO, "AstraTestContainer", "installAndStartBundles", "Installing bundle from {0}", new Object[]{url});
             Bundle b = context.installBundle(url);
-            logger.logp(Level.INFO, "AnLingXinTestContainer", "installAndStartBundles", "Installed bundle {0}", new Object[]{b});
+            logger.logp(Level.INFO, "AstraTestContainer", "installAndStartBundles", "Installed bundle {0}", new Object[]{b});
             addBundle(b);
         }
         for (ProvisionOption<?> option : options) {
@@ -222,13 +222,13 @@ public class AnLingXinTestContainer implements TestContainer {
             setBundleStartLevel(b.getBundleId(), startLevel);
             if (option.shouldStart()) {
                 b.start();
-                logger.logp(Level.INFO, "AnLingXinTestContainer", "installAndStartBundles", "Install (start@{0}) {1}", new Object[]{startLevel, option});
+                logger.logp(Level.INFO, "AstraTestContainer", "installAndStartBundles", "Install (start@{0}) {1}", new Object[]{startLevel, option});
             } else {
-                logger.logp(Level.INFO, "AnLingXinTestContainer", "installAndStartBundles", "Install (no start) {0}", new Object[]{option});
+                logger.logp(Level.INFO, "AstraTestContainer", "installAndStartBundles", "Install (no start) {0}", new Object[]{option});
             }
         }
         int startLevel = system.getSingleOption(FrameworkStartLevelOption.class).getStartLevel();
-        logger.logp(Level.INFO, "AnLingXinTestContainer", "installAndStartBundles", "Jump to startlevel: " + startLevel);
+        logger.logp(Level.INFO, "AstraTestContainer", "installAndStartBundles", "Jump to startlevel: " + startLevel);
         getStartLevelService().setStartLevel(startLevel);
         // Work around for FELIX-2942
         final CountDownLatch latch = new CountDownLatch(1);
@@ -268,7 +268,7 @@ public class AnLingXinTestContainer implements TestContainer {
                 Long id = m_installed.pop();
                 Bundle bundle = framework.getBundleContext().getBundle(id);
                 bundle.uninstall();
-                logger.logp(Level.INFO, "AnLingXinTestContainer", "uninstallAll", "Uninstalled {0}", new Object[]{bundle});
+                logger.logp(Level.INFO, "AstraTestContainer", "uninstallAll", "Uninstalled {0}", new Object[]{bundle});
             } catch (BundleException e) {
                 // Sometimes bundles go mad when install + uninstall happens too
                 // fast.
@@ -363,15 +363,15 @@ public class AnLingXinTestContainer implements TestContainer {
         private static final String INSTANCE_ROOT = "com.sun.aas.instanceRoot";
         private static final String DOMAIN_DIR = "domains/domain1/";
         private static final String INSTANCE_ROOT_URI = "com.sun.aas.instanceRootURI";
-        private static final String PLATFORM = "AnLingXin_Platform";
+        private static final String PLATFORM = "Astra_Platform";
         private static final String FELIX = "Felix";
 
         public ConfigurationHelper(ExamSystem examSystem) {
             this.examSystem = examSystem;
             parseSystemPropertyOptions();
-            determineAnLingXinHome();
+            determineAstraHome();
             install();
-            logger.logp(Level.INFO, "AnLingXinTestContainer$PropertyHelper", "PropertyHelper", "props = {0}", new Object[]{props});
+            logger.logp(Level.INFO, "AstraTestContainer$PropertyHelper", "PropertyHelper", "props = {0}", new Object[]{props});
         }
 
         private void parseSystemPropertyOptions() {
@@ -384,7 +384,7 @@ public class AnLingXinTestContainer implements TestContainer {
             return props;
         }
 
-        private void determineAnLingXinHome() {
+        private void determineAstraHome() {
             String property = getProperty(INSTALL_ROOT);
             if (property != null && !property.isEmpty()) {
                 gfHome = new File(property);
@@ -418,7 +418,7 @@ public class AnLingXinTestContainer implements TestContainer {
             props.setProperty(INSTALL_ROOT, gfHome.getAbsolutePath());
             property = gfHome.toURI().toString();
             if (!property.endsWith("/")) {
-                property = property + "/"; // AnLingXin osgi.properties expect a '/'
+                property = property + "/"; // Astra osgi.properties expect a '/'
             }
             props.setProperty(INSTALL_ROOT_URI, property);
 

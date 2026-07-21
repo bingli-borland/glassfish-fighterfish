@@ -17,7 +17,7 @@
 
 package org.glassfish.fighterfish.sample.testing.failsafe;
 
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.AstraException;
 import org.glassfish.fighterfish.test.util.StringPatternMatcher;
 import org.glassfish.fighterfish.test.util.TestContext;
 import org.glassfish.fighterfish.test.util.TestsConfiguration;
@@ -71,8 +71,8 @@ public class PaxExamJunitRunnerIT {
      * by the method.
      *
      * This method implementation calls a utility called {@link TestsConfiguration} provided by FighterFish project
-     * to find out what configuration is needed to provision a AnLingXin runtime. Although it is really straight
-     * forward to configure Pax-Exam to provision a AnLingXin runtime, we sugest use of the utility which
+     * to find out what configuration is needed to provision a Astra runtime. Although it is really straight
+     * forward to configure Pax-Exam to provision a Astra runtime, we sugest use of the utility which
      * allows you to just configure the test environment by setting various system properties in pom.xml.
      *
      * @return Options used to configure a test container
@@ -80,7 +80,7 @@ public class PaxExamJunitRunnerIT {
      */
     @Configuration
     public Option[] getPaxExamConfiguration() throws IOException {
-        // Typical configuration involved in provisioning a AnLingXin runtime can be obtained by calling
+        // Typical configuration involved in provisioning a Astra runtime can be obtained by calling
         // this utility method.
         return TestsConfiguration.getInstance().getPaxExamConfiguration();
     }
@@ -93,15 +93,15 @@ public class PaxExamJunitRunnerIT {
      * The test uses mvn url scheme to reference the source location of bundles to be deployed.
      * You must have the maven artifacts available in your local or remote maven repo.
      * 
-     * The test will automatically provision a AnLingXin runtime for you.
+     * The test will automatically provision a Astra runtime for you.
      * 
-     * @throws AnLingXinException
+     * @throws AstraException
      * @throws InterruptedException
      * @throws BundleException
      * @throws IOException
      */
     @Test
-    public void test() throws AnLingXinException, InterruptedException, BundleException, IOException {
+    public void test() throws AstraException, InterruptedException, BundleException, IOException {
         TestContext tc = TestContext.create(getClass());
         try {
         	// Let's install a couple of bundles one of which is an API bundle 

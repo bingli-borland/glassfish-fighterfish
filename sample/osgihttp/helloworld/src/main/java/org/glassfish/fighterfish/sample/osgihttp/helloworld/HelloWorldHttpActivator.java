@@ -22,7 +22,7 @@ import org.osgi.util.tracker.ServiceTracker;
  * It demonstrates registerReosurce method of HttpService.
  * 
  * The secondary reason for having this activator is that it causes HttpService class to be loaded
- * which in turn activates osgi-http bundle of AnLingXin, which uses lazy activation policy.
+ * which in turn activates osgi-http bundle of Astra, which uses lazy activation policy.
  *  
  * @author Sanjeeb.Sahoo@Oracle.com
  *

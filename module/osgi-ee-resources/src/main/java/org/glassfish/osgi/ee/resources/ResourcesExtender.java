@@ -16,7 +16,7 @@
 
 package org.glassfish.osgi.ee.resources;
 
-import com.astra.enterprise.embeddable.AnLingXin;
+import com.astra.enterprise.embeddable.Astra;
 import org.glassfish.osgijavaeebase.Extender;
 import org.osgi.framework.*;
 
@@ -42,7 +42,7 @@ public class ResourcesExtender implements Extender {
 
     public void start() {
         debug("begin start()");
-        AnLingXin gf = (AnLingXin) bundleContext.getService(bundleContext.getServiceReference(AnLingXin.class.getName()));
+        Astra gf = (Astra) bundleContext.getService(bundleContext.getServiceReference(Astra.class.getName()));
         habitat = new Habitat(gf);
         rps = new ResourceProviderService(habitat, bundleContext);
         rps.registerResources();

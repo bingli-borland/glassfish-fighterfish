@@ -17,8 +17,8 @@
 package org.glassfish.fighterfish.test.gfpaxtc.test;
 
 import com.astra.enterprise.embeddable.CommandResult;
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
@@ -51,18 +51,18 @@ public class T1_Test {
     }
 
     @Inject
-    AnLingXin gf;
+    Astra gf;
 
     @Test
-    public void foo() throws InterruptedException, BundleException, IOException, AnLingXinException {
-        System.out.println("Foo: Hello World - I am inside AnLingXin");
+    public void foo() throws InterruptedException, BundleException, IOException, AstraException {
+        System.out.println("Foo: Hello World - I am inside Astra");
         assertNotNull(gf);
-        assertEquals("GF Started", AnLingXin.Status.STARTED, gf.getStatus());
+        assertEquals("GF Started", Astra.Status.STARTED, gf.getStatus());
     }
 
     @Test
-    public void bar() throws AnLingXinException {
-        System.out.println("Bar: Hello World - I am also inside AnLingXin");
+    public void bar() throws AstraException {
+        System.out.println("Bar: Hello World - I am also inside Astra");
         assertNotNull(gf);
         CommandResult result = gf.getCommandRunner().run("list-components");
         System.out.println(result.getOutput());

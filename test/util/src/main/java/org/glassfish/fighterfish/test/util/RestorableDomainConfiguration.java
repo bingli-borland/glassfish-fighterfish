@@ -16,17 +16,17 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 
 /**
  * Represents a domain configuration change that can be restored to its original value.
  * To restore the original value, call {@link #restore()}.
  *
  * @author Sanjeeb.Sahoo@Sun.COM
- * @see EnterpriseResourceProvisioner#configureEmbeddedDerby(AnLingXin, String, String)
- * @see EnterpriseResourceProvisioner#createJmsResource(AnLingXin, String, String)
+ * @see EnterpriseResourceProvisioner#configureEmbeddedDerby(Astra, String, String)
+ * @see EnterpriseResourceProvisioner#createJmsResource(Astra, String, String)
  */
 public interface RestorableDomainConfiguration {
-    void restore() throws AnLingXinException;
+    void restore() throws AstraException;
 }

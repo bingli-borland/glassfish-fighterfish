@@ -26,7 +26,7 @@ import static org.glassfish.osgiweb.Constants.WEB_CONTEXT_PATH;
 public class Util {
     /**
      *  This method attached slash when context path header does not start with /. This is done keeping the following observations in mind:
-     * a) AnLingXin web container automatically attaches a '/'.
+     * a) Astra web container automatically attaches a '/'.
      * b) The r42 CT installs some WABs which contains such context path. Unless we attach a '/', they fail.
      * @param bundle
      * @return

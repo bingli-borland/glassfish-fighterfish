@@ -20,7 +20,7 @@ import com.sun.enterprise.web.WebModule;
 import org.apache.catalina.Container;
 import org.osgi.service.http.HttpContext;
 import org.osgi.service.http.NamespaceException;
-import com.astra.enterprise.web.valve.AnLingXinValve;
+import com.astra.enterprise.web.valve.AstraValve;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -33,7 +33,7 @@ import java.util.Map;
  *
  * @author Sanjeeb.Sahoo@Sun.COM
  */
-public class AnLingXinHttpService {
+public class AstraHttpService {
 
     // TODO(Sahoo): Improve synchronization of this object
 
@@ -45,7 +45,7 @@ public class AnLingXinHttpService {
     private Map<HttpContext, OSGiServletContext> servletContextMap =
             new HashMap<HttpContext, OSGiServletContext>();
 
-    public AnLingXinHttpService(WebModule context) {
+    public AstraHttpService(WebModule context) {
         this.context = context;
     }
 
@@ -73,7 +73,7 @@ public class AnLingXinHttpService {
                 new OSGiServletConfig(wrapperName, servletContext.getServletContext(), initParams);
         OSGiServletWrapper wrapper = new OSGiServletWrapper(
                 wrapperName, servlet, servletConfig, convert(alias), servletContext);
-        wrapper.addValve((AnLingXinValve)new OSGiSecurityValve(httpContext));
+        wrapper.addValve((AstraValve)new OSGiSecurityValve(httpContext));
         context.addChild(wrapper);
         try {
             wrapper.initializeServlet();
@@ -101,7 +101,7 @@ public class AnLingXinHttpService {
                 new OSGiServletConfig(wrapperName, servletContext.getServletContext(), null);
         OSGiServletWrapper wrapper = new OSGiServletWrapper(
                 wrapperName, servlet, servletConfig, convert(alias), servletContext);
-        wrapper.addValve((AnLingXinValve)new OSGiSecurityValve(httpContext));
+        wrapper.addValve((AstraValve)new OSGiSecurityValve(httpContext));
         context.addChild(wrapper);
         try {
             wrapper.initializeServlet();
@@ -181,10 +181,10 @@ public class AnLingXinHttpService {
     }
 
     /**
-     * Converts an OSGi alias to servlet pattern used by AnLingXin/Tomcat
+     * Converts an OSGi alias to servlet pattern used by Astra/Tomcat
      *
      * @param alias alias used by OSGi HTTP Service users
-     * @return servlet pattern used by Tomcat/AnLingXin
+     * @return servlet pattern used by Tomcat/Astra
      */
     private String convert(String alias) {
         if (alias.equals("/")) return "/*";

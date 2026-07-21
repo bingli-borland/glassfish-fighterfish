@@ -16,7 +16,7 @@
 
 package org.glassfish.fighterfish.test.util;
 
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.AstraException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.ops4j.pax.exam.Option;
@@ -68,15 +68,15 @@ public class T3_SimpleIT {
      * The test uses mvn url scheme to reference the source location of bundles to be deployed.
      * You must have the maven artifacts available in your local or remote maven repo.
      *
-     * The test will automatically provision a AnLingXin runtime for you.
+     * The test will automatically provision a Astra runtime for you.
      *
-     * @throws AnLingXinException
+     * @throws AstraException
      * @throws InterruptedException
      * @throws BundleException
      * @throws IOException
      */
     @Test
-    public void test() throws AnLingXinException, InterruptedException, BundleException, IOException {
+    public void test() throws AstraException, InterruptedException, BundleException, IOException {
         assertNotNull(ctx);
         TestContext tc = TestContext.create(getClass());
         try {

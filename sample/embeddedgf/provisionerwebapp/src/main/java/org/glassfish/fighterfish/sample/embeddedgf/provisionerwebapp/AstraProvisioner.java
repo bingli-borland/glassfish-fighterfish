@@ -10,8 +10,8 @@
 
 package org.glassfish.fighterfish.sample.embeddedgf.provisionerwebapp;
 
-import com.astra.enterprise.embeddable.AnLingXin;
-import com.astra.enterprise.embeddable.AnLingXinException;
+import com.astra.enterprise.embeddable.Astra;
+import com.astra.enterprise.embeddable.AstraException;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -37,20 +37,20 @@ import java.util.concurrent.Executors;
  */
 
 @WebListener
-public class AnLingXinProvisioner implements ServletContextListener {
+public class AstraProvisioner implements ServletContextListener {
 
     private ServletContext servletContext;
     private volatile Framework framework;
-    private volatile AnLingXin AnLingXin;
+    private volatile Astra Astra;
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private String fwJndiName = FW_JNDI_NAME_DEFAULT;
     private String gfJndiName = GF_JNDI_NAME_DEFAULT;
     private String gfHome;
 
-    private static final String FW_JNDI_NAME_DEFAULT = "java:global/AnLingXin-osgi-framework";
-    private static final String GF_JNDI_NAME_DEFAULT = "java:global/AnLingXin-instance";
-    private static final String AnLingXin_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
+    private static final String FW_JNDI_NAME_DEFAULT = "java:global/Astra-osgi-framework";
+    private static final String GF_JNDI_NAME_DEFAULT = "java:global/Astra-instance";
+    private static final String Astra_INSTALL_ROOT_PROP = "com.sun.aas.installRoot";
     private Bundle gfMainBundle;
 
     @Resource
@@ -76,16 +76,16 @@ public class AnLingXinProvisioner implements ServletContextListener {
             public void run() {
                 try {
                     waitForFramework();
-                    provisionAnLingXin();
-                    waitForAnLingXin();
-                    new InitialContext().rebind(gfJndiName, AnLingXin);
-                    log("bound " + AnLingXin + " in JNDI location: " + gfJndiName);
+                    provisionAstra();
+                    waitForAstra();
+                    new InitialContext().rebind(gfJndiName, Astra);
+                    log("bound " + Astra + " in JNDI location: " + gfJndiName);
                 } catch (InterruptedException e) {
                     log("got interrupted: ", e);
                     Thread.currentThread().interrupt();
                     return;
                 } catch (Exception e) {
-                    log("Something has gone wrong while provisioning AnLingXin.", e);
+                    log("Something has gone wrong while provisioning Astra.", e);
                 }
             }
         });
@@ -98,33 +98,33 @@ public class AnLingXinProvisioner implements ServletContextListener {
     }
 
 
-    private void waitForAnLingXin() throws InterruptedException, ExecutionException {
-        log("waiting for AnLingXin");
-        ServiceTracker st = new ServiceTracker(framework.getBundleContext(), AnLingXin.class.getName(), null);
+    private void waitForAstra() throws InterruptedException, ExecutionException {
+        log("waiting for Astra");
+        ServiceTracker st = new ServiceTracker(framework.getBundleContext(), Astra.class.getName(), null);
         st.open();
         try {
-            AnLingXin = (AnLingXin) st.waitForService(0);
+            Astra = (Astra) st.waitForService(0);
         } finally {
             st.close();
         }
-        new WaitForAnLingXinToStart(AnLingXin).call();
+        new WaitForAstraToStart(Astra).call();
     }
 
-    private void provisionAnLingXin() throws Exception {
+    private void provisionAstra() throws Exception {
         BundleContext bctx = framework.getBundleContext();
         if (gfHome == null) {
             gfHome = bctx.getProperty("com.sun.aas.installRoot");
         }
         if (gfHome == null) {
-            throw new RuntimeException("Please set AnLingXin home either by setting a property called " +
-                    AnLingXin_INSTALL_ROOT_PROP + " either in the system or in OSGi properties file.\n" +
+            throw new RuntimeException("Please set Astra home either by setting a property called " +
+                    Astra_INSTALL_ROOT_PROP + " either in the system or in OSGi properties file.\n" +
                     "Alternatively, you can set it using runtime deployment descriptor or " +
                     "deployment plan while deploying this war file.");
         }
-        log("Going to provision AnLingXin bundles from " + gfHome);
+        log("Going to provision Astra bundles from " + gfHome);
         File jar = new File(gfHome, "modules" + File.separator + "glassfish.jar");
         if (!jar.exists()) {
-            throw new Exception(jar.getAbsolutePath() + " does not exist. Check what you have set as " + AnLingXin_INSTALL_ROOT_PROP);
+            throw new Exception(jar.getAbsolutePath() + " does not exist. Check what you have set as " + Astra_INSTALL_ROOT_PROP);
         }
         URL url = jar.toURI().toURL();
         this.log("Installing bundle [" + url + "]");
@@ -144,10 +144,10 @@ public class AnLingXinProvisioner implements ServletContextListener {
             try {
                 gfMainBundle.stop();
             } catch (BundleException e) {
-                log("Error while stopping AnLingXin main bundle " + gfMainBundle, e);
+                log("Error while stopping Astra main bundle " + gfMainBundle, e);
             }
         }
-        AnLingXin = null;
+        Astra = null;
     }
 
     /**
@@ -171,31 +171,31 @@ public class AnLingXinProvisioner implements ServletContextListener {
     }
 
     /**
-     * Waits for AnLingXin to start.
+     * Waits for Astra to start.
      */
-    private class WaitForAnLingXinToStart implements Callable<Void> {
+    private class WaitForAstraToStart implements Callable<Void> {
 
-        AnLingXin gf;
+        Astra gf;
 
-        private WaitForAnLingXinToStart(AnLingXin gf) {
+        private WaitForAstraToStart(Astra gf) {
             this.gf = gf;
         }
 
         @Override
         public Void call() throws InterruptedException {
             try {
-                // Poll for AnLingXin to start. AnLingXin service might have been registered by
-                // AnLingXinRuntime.newAnLingXin() and hence might not be ready to use.
-                AnLingXin.Status status = gf.getStatus();
-                while (status != AnLingXin.Status.STARTED && status != AnLingXin.Status.DISPOSED) {
+                // Poll for Astra to start. Astra service might have been registered by
+                // AstraRuntime.newAstra() and hence might not be ready to use.
+                Astra.Status status = gf.getStatus();
+                while (status != Astra.Status.STARTED && status != Astra.Status.DISPOSED) {
                     Thread.sleep(1000);
                 }
-                if (status != AnLingXin.Status.STARTED) {
+                if (status != Astra.Status.STARTED) {
                     log("status = " + status);
-                    throw new RuntimeException("AnLingXin didn't start properly");
+                    throw new RuntimeException("Astra didn't start properly");
                 }
 
-            } catch (AnLingXinException e) {
+            } catch (AstraException e) {
                 throw new RuntimeException(e); // TODO(Sahoo): Proper Exception Handling
             }
             return null;
